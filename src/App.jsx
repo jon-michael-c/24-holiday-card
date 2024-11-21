@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import "./styles/index.scss";
 import Lottie from "lottie-react";
-import loadingAnim from "./assets/loading.json";
+import LEI from "./assets/LEI.json";
+import BOW from "./assets/BOW.json";
+import ITZ from "./assets/ITZ.json";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -9,7 +11,7 @@ function App() {
   const [loading, setLoading] = useState(0.0);
 
   const loadAnim = () => {
-    let ease = "expo.inOut";
+    let ease = "expo.in";
     gsap.to(".loading-text", {
       duration: 1,
       opacity: 0,
@@ -65,7 +67,7 @@ function App() {
         });
         return prev + 0.2;
       });
-    }, 100);
+    }, 500);
   });
 
   return (
@@ -75,8 +77,15 @@ function App() {
         <div className="load-bg"></div>
         <div className="loading flex justify-center items-center w-full h-full text-center">
           <div>
-            <div className="w-[600px] h-auto">
-              <Lottie animationData={loadingAnim} loop autoplay />
+            <div className="mx-auto w-[80%] max-w-[1300px] h-full mb-16">
+              <div className="grid grid-cols-3 w-full h-full">
+                <Lottie
+                  style={{ width: "100%", height: "100%" }}
+                  animationData={LEI}
+                />
+                <Lottie animationData={BOW} />
+                <Lottie animationData={ITZ} />
+              </div>
             </div>
             <p className="text-[12vw] leading-[1] font-[200] text-white">
               {Math.round(loading, 2)}%
