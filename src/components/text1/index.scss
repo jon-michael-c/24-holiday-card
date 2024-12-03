@@ -1,0 +1,25 @@
+#year1,
+#year2 {
+  position: relative;
+  padding-left: 40px;
+  &::before {
+    position: absolute;
+    content: "";
+    width: 25px;
+    height: 25px;
+    @apply bg-purple;
+    border-radius: 50%;
+    top: 50%;
+    left: 0;
+    transform: translate(0%, -50%);
+  }
+}
+
+#yearLine {
+  position: absolute;
+  width: 10px;
+  height: 50%;
+  left: 6.5px;
+  top: 20%;
+  @apply bg-purple;
+}

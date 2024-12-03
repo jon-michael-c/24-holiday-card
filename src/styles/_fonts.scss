@@ -1,8 +1,9 @@
+@use "sass:map";
 // a mixin to create @font-face rules
 @mixin font-face($font-family, $font-path, $weights-styles) {
   @each $file, $properties in $weights-styles {
-    $weight: map-get($properties, "weight");
-    $style: map-get($properties, "style");
+    $weight: map.get($properties, "weight");
+    $style: map.get($properties, "style");
 
     @font-face {
       font-family: $font-family;

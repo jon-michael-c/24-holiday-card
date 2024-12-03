@@ -5,49 +5,49 @@ import LEI from "./assets/LEI.json";
 import BOW from "./assets/BOW.json";
 import ITZ from "./assets/ITZ.json";
 import gsap from "gsap";
+import Start from "./components/start";
+import Text1 from "./components/text1";
 import { useGSAP } from "@gsap/react";
+import { TextPlugin } from "gsap/TextPlugin";
 
 function App() {
   const [loading, setLoading] = useState(0.0);
 
-  const loadAnim = () => {
+  const introAnim = () => {
+    gsap.registerPlugin(TextPlugin);
+    // Wait 5 seconds
     let ease = "expo.in";
-    gsap.to(".loading-text", {
+    let t1 = gsap.timeline();
+
+    t1.to(".loading-text", {
       duration: 1,
       opacity: 0,
       ease: "none",
-      delay: 0.5,
     });
-    gsap.from(".loading", {
+    t1.from(".loading", {
       duration: 1,
       scale: 1,
       ease: ease,
-      delay: 0.5,
     });
-
-    gsap.to(".loading", {
+    t1.to(".loading", {
       duration: 1,
       scale: 0.8,
       ease: ease,
-      delay: 1,
     });
-    gsap.to(".loading", {
+    t1.to(".loading", {
       duration: 1,
       translateX: "-100%",
       ease: ease,
-      delay: 2,
     });
-    gsap.to(".square-frame", {
+    t1.to(".square-frame", {
       duration: 1,
       width: "150%",
       ease: ease,
-      delay: 3,
     });
-    gsap.to(".content-inner", {
+    t1.to(".content-inner", {
       duration: 1,
       scale: 1,
       ease: ease,
-      delay: 4,
     });
   };
 
@@ -57,7 +57,7 @@ function App() {
         if (prev >= 100) {
           clearInterval(interval);
 
-          loadAnim();
+          introAnim();
           return 100;
         }
         gsap.to(".app-bg", {
@@ -67,7 +67,7 @@ function App() {
         });
         return prev + 0.2;
       });
-    }, 500);
+    }, 200);
   });
 
   return (
@@ -95,23 +95,8 @@ function App() {
             </h1>
           </div>
         </div>
-        <div className="square-frame">
-          <div className="content">
-            <div className="content-inner h-full w-full flex justify-center items-center">
-              <div className="flex gap-8">
-                <div className="square-items">
-                  <img src="/tiles/tile_1.png" />
-                </div>
-                <div className="square-items">
-                  <img src="/tiles/tile_2.png" />
-                </div>
-                <div className="square-items">
-                  <img src="/tiles/tile_3.png" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Start />
+        <Text1 />
       </div>
     </>
   );
