@@ -18,7 +18,6 @@ function App() {
   const loadingText = useRef(null);
 
   const introAnim = contextSafe(() => {
-    // Wait 5 seconds
     let ease = "power4.out";
     let t1 = gsap.timeline();
 
@@ -78,13 +77,17 @@ function App() {
     });
   });
 
+  useGSAP(() => {
+    if (loading >= 100) {
+      introAnim();
+    }
+  }, [loading]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setLoading((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-
-          introAnim();
           return 100;
         }
         gsap.to(".app-bg", {
