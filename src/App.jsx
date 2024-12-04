@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./styles/index.scss";
 import Lottie from "lottie-react";
 import LEI from "./assets/LEI.json";
@@ -9,47 +9,74 @@ import Start from "./components/start";
 import Text1 from "./components/text1";
 import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
+gsap.registerPlugin(TextPlugin);
 
 function App() {
   const [loading, setLoading] = useState(0.0);
+  const { contextSafe } = useGSAP();
+  const loadingElm = useRef(null);
+  const loadingText = useRef(null);
 
-  const introAnim = () => {
-    gsap.registerPlugin(TextPlugin);
+  const introAnim = contextSafe(() => {
     // Wait 5 seconds
-    let ease = "expo.in";
+    let ease = "power4.out";
     let t1 = gsap.timeline();
 
-    t1.to(".loading-text", {
+    t1.to(loadingText, {
       duration: 1,
       opacity: 0,
       ease: "none",
     });
-    t1.from(".loading", {
+    t1.from(loadingElm, {
       duration: 1,
       scale: 1,
       ease: ease,
     });
-    t1.to(".loading", {
+    t1.to(loadingElm, {
       duration: 1,
       scale: 0.8,
       ease: ease,
     });
-    t1.to(".loading", {
+    t1.to(loadingElm.current, {
       duration: 1,
       translateX: "-100%",
       ease: ease,
     });
+
     t1.to(".square-frame", {
-      duration: 1,
-      width: "150%",
+      duration: 0.65,
+      width: "25%",
       ease: ease,
     });
+
+    t1.to(".square-frame", {
+      duration: 3,
+      width: "150%",
+      ease: ease,
+      delay: 0.5,
+    });
+    t1.to(
+      ".items",
+      {
+        duration: 1,
+        top: "0px",
+        scale: 1,
+        ease: ease,
+      },
+      ">-=2.5"
+    );
+
     t1.to(".content-inner", {
       duration: 1,
       scale: 1,
       ease: ease,
     });
-  };
+    t1.to("#start-button", {
+      duration: 0.65,
+      opacity: 1,
+      ease: ease,
+    });
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -67,7 +94,7 @@ function App() {
         });
         return prev + 0.2;
       });
-    }, 200);
+    }, 100);
   });
 
   return (
@@ -75,7 +102,10 @@ function App() {
       <div className="overflow-hidden w-full h-full relative">
         <div className="app-bg"></div>
         <div className="load-bg"></div>
-        <div className="loading flex justify-center items-center w-full h-full text-center">
+        <div
+          ref={loadingElm}
+          className="loading flex justify-center items-center w-full h-full text-center"
+        >
           <div>
             <div className="mx-auto w-[80%] max-w-[1300px] h-full mb-16">
               <div className="grid grid-cols-3 w-full h-full">
