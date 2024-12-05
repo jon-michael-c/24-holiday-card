@@ -1,0 +1,21 @@
+[
+  {
+    "christmasTree": {
+      "background": {
+        "path": "/lottie/tree/background.json"
+      },
+      "tree": {
+        "path": "/lottie/tree/tree.json"
+      },
+      "gifts": {
+        "path": "/lottie/tree/gifts.json"
+      },
+      "window": {
+        "path": "/lottie/tree/window.json"
+      },
+      "foreground": {
+        "path": "/lottie/tree/foreground.json"
+      }
+    }
+  }
+]

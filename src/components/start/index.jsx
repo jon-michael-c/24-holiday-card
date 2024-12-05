@@ -17,7 +17,9 @@ import Tree from "../panels/Tree";
       ease: "none",
     });
 */
-export default function Start() {
+
+export default function Start(props) {
+  const { lotties } = props;
   useEffect(() => {}, []);
   return (
     <div className="square-frame">
@@ -28,7 +30,7 @@ export default function Start() {
               <img src="/tiles/tile_1.png" />
             </div>
             <div className="square-items">
-              <Tree />
+              <Tree data={lotties[0]["christmasTree"]} />
             </div>
             <div className="square-items">
               <img src="/tiles/tile_3.png" />

@@ -9,13 +9,17 @@ import Start from "./components/start";
 import Text1 from "./components/text1";
 import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
+import Loader from "./helpers/Loader";
 gsap.registerPlugin(TextPlugin);
 
 function App() {
   const [loading, setLoading] = useState(0.0);
+  const [lottieData, setLottieData] = useState([]);
   const { contextSafe } = useGSAP();
   const loadingElm = useRef(null);
   const loadingText = useRef(null);
+  const hasRunRef = useRef(false);
+  const lastUpdateRef = useRef(Date.now());
 
   const introAnim = contextSafe(() => {
     let ease = "power4.out";
@@ -84,6 +88,29 @@ function App() {
   }, [loading]);
 
   useEffect(() => {
+    const loader = new Loader();
+    if (hasRunRef.current) return;
+    hasRunRef.current = true;
+    loader
+      .loadAll((progress) => {
+        const now = Date.now();
+        if (now - lastUpdateRef.current >= 100 || progress === 100) {
+          setLoading(progress);
+          lastUpdateRef.current = now;
+        }
+        gsap.to(".app-bg", {
+          duration: 0.1,
+          height: `${progress}%`,
+          ease: "none",
+        });
+
+        setLoading(progress);
+      })
+      .then((data) => {
+        setLoading(100);
+        setLottieData(data);
+      });
+    /*
     const interval = setInterval(() => {
       setLoading((prev) => {
         if (prev >= 100) {
@@ -98,11 +125,40 @@ function App() {
         return prev + 0.2;
       });
     }, 100);
-  });
+    */
+  }, [loading]);
 
   return (
     <>
       <div className="overflow-hidden w-full h-full relative">
+        <div className="hidden">
+          <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+                <feFlood floodColor="yellow" floodOpacity="1" result="flood" />
+                <feComposite
+                  in="flood"
+                  in2="SourceAlpha"
+                  operator="in"
+                  result="coloredGlow"
+                />
+
+                <feGaussianBlur
+                  in="coloredGlow"
+                  stdDeviation="20"
+                  result="blurredGlow"
+                />
+
+                <feMerge>
+                  <feMergeNode in="blurredGlow" />
+                  <feMergeNode in="blurredGlow" />
+                  <feMergeNode in="blurredGlow" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+          </svg>
+        </div>
         <div className="app-bg"></div>
         <div className="load-bg"></div>
         <div
@@ -128,7 +184,7 @@ function App() {
             </h1>
           </div>
         </div>
-        <Start />
+        {loading >= 100 && <Start lotties={lottieData} />}
         <Text1 />
       </div>
     </>
