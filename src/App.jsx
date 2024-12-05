@@ -1,15 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import "./styles/index.scss";
-import Lottie from "lottie-react";
-import LEI from "./assets/LEI.json";
-import BOW from "./assets/BOW.json";
-import ITZ from "./assets/ITZ.json";
 import gsap from "gsap";
 import Start from "./components/start";
 import Text1 from "./components/text1";
 import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
 import Loader from "./helpers/Loader";
+import Logo from "./components/logo";
 gsap.registerPlugin(TextPlugin);
 
 function App() {
@@ -167,14 +164,7 @@ function App() {
         >
           <div>
             <div className="mx-auto w-[80%] max-w-[1300px] h-full mb-16">
-              <div className="grid grid-cols-3 w-full h-full">
-                <Lottie
-                  style={{ width: "100%", height: "100%" }}
-                  animationData={LEI}
-                />
-                <Lottie animationData={BOW} />
-                <Lottie animationData={ITZ} />
-              </div>
+              <Logo />
             </div>
             <p className="text-[12vw] leading-[1] font-[200] text-white">
               {Math.round(loading, 2)}%

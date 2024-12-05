@@ -4,7 +4,6 @@ import { fetchWithProgress } from "../../../helpers/fetch";
 
 const Tree = (props) => {
   const { background, foreground, gifts, tree, window } = props.data;
-  console.log(props);
   useEffect(() => {
     let leaves =
       document.querySelector("g[clip-path='url(#__lottie_element_1210)']") ??
