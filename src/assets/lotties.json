@@ -16,6 +16,20 @@
       "foreground": {
         "path": "/lottie/tree/foreground.json"
       }
+    },
+    "fireplace": {
+      "background": {
+        "path": "/lottie/fireplace/background.json"
+      },
+      "fire": {
+        "path": "/lottie/fireplace/fire.json"
+      },
+      "floor": {
+        "path": "/lottie/fireplace/floor.json"
+      },
+      "foreground": {
+        "path": "/lottie/fireplace/foreground.json"
+      }
     }
   }
 ]

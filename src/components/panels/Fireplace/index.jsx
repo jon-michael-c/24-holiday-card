@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Lottie from "lottie-react";
 
-const Tree = (props) => {
-  const { background, foreground, gifts, tree, window } = props.data;
+const Fireplace = (props) => {
+  const { background, foreground, fire, floor } = props.data;
   useEffect(() => {
     let leaves =
       document.querySelector("g[clip-path='url(#__lottie_element_1210)']") ??
@@ -10,34 +10,28 @@ const Tree = (props) => {
     if (false) leaves.style.filter = "url(#glow)";
   }, []);
   return (
-    <div className="tree h-full relative w-[220%] translate-x-[-51%]">
-      <div className="tree__window absolute top-0 left-0 w-full h-full z-[5]">
-        <Lottie
-          animationData={window.data}
-          style={{ width: "100%", height: "100%" }}
-        />
-      </div>
-      <div className="tree__chirstmas-tree absolute top-0 left-0 w-full h-full z-[10]">
-        <Lottie
-          animationData={tree.data}
-          style={{ width: "100%", height: "100%" }}
-        />
-      </div>
-      <div className="tree__background absolute top-0 left-0 w-full h-full">
+    <div className="tree h-full relative w-[220%] translate-x-[-27%]">
+      <div className="tree__window absolute top-0 left-0 w-full h-full z-[-2]">
         <Lottie
           animationData={background.data}
           style={{ width: "100%", height: "100%" }}
         />
       </div>
-      <div className="tree__gifts absolute bottom-0 left-0 w-full h-full">
+      <div className="tree__chirstmas-tree absolute top-0 left-0 w-full h-full z-[10]">
         <Lottie
-          animationData={gifts.data}
+          animationData={foreground.data}
           style={{ width: "100%", height: "100%" }}
         />
       </div>
-      <div className="tree__foreground absolute top-0 left-0 w-full h-full">
+      <div className="tree__background absolute top-0 left-0 w-full h-full z-[2]">
         <Lottie
-          animationData={foreground.data}
+          animationData={fire.data}
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+      <div className="tree__gifts absolute bottom-0 left-0 w-full h-full">
+        <Lottie
+          animationData={floor.data}
           style={{ width: "100%", height: "100%" }}
         />
       </div>
@@ -45,4 +39,4 @@ const Tree = (props) => {
   );
 };
 
-export default Tree;
+export default Fireplace;

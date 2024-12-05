@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import Tree from "../panels/Tree";
+import Fireplace from "../panels/Fireplace";
 
 /*
  t1.to(".square-frame", {
@@ -28,7 +29,7 @@ export default function Start(props) {
         <div className="content-inner h-full w-full flex flex-col gap-8 justify-center items-center">
           <div className="items relative scale-[4.2] top-[1181px] flex gap-8">
             <div className="square-items">
-              <img src="/tiles/tile_1.png" />
+              <Fireplace data={lotties[0].fireplace} />
             </div>
             <div className="square-items">
               <Tree data={lotties[0].christmasTree} />
