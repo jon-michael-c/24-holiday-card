@@ -120,22 +120,6 @@ function App() {
           });
         });
       });
-    /*
-    const interval = setInterval(() => {
-      setLoading((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          return 100;
-        }
-        gsap.to(".app-bg", {
-          duration: 0.2,
-          height: `${prev + 0.2}%`,
-          ease: "none",
-        });
-        return prev + 0.2;
-      });
-    }, 100);
-    */
   }, [loading]);
 
   return (
