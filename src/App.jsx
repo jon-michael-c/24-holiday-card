@@ -104,8 +104,21 @@ function App() {
         setLoading(progress);
       })
       .then((data) => {
-        setLoading(100);
+        setLoading(80);
         setLottieData(data);
+
+        loader.loadAudioFully("/audio/music.mp3").then((audio) => {
+          audio.muted = true;
+          audio.loop = true;
+          document.body.appendChild(audio);
+
+          setLoading(100);
+          gsap.to(".app-bg", {
+            duration: 0.2,
+            height: `100%`,
+            ease: "none",
+          });
+        });
       });
     /*
     const interval = setInterval(() => {
