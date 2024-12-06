@@ -6,10 +6,10 @@ import ITZ from "./lotties/ITZ.json";
 
 function Logo() {
   return (
-    <div className="grid grid-cols-3 w-full h-full">
-      <Lottie style={{ width: "100%", height: "100%" }} animationData={LEI} />
-      <Lottie animationData={BOW} />
-      <Lottie animationData={ITZ} />
+    <div className="flex justify-center items-center relative">
+      <Lottie style={{ width: "auto", height: "200px" }} animationData={LEI} />
+      <Lottie style={{ width: "auto", height: "200px" }} animationData={BOW} />
+      <Lottie style={{ width: "auto", height: "200px" }} animationData={ITZ} />
     </div>
   );
 }

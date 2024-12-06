@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import "./styles/index.scss";
 import gsap from "gsap";
 import Start from "./components/start";
-import Text1 from "./components/text1";
 import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
 import Loader from "./helpers/Loader";
@@ -80,7 +79,7 @@ function App() {
   });
 
   useGSAP(() => {
-    if (loading >= 100) {
+    if (false) {
       introAnim();
     }
   }, [loading]);
@@ -161,7 +160,7 @@ function App() {
           className="loading flex justify-center items-center w-full h-full text-center"
         >
           <div>
-            <div className="mx-auto w-[80%] max-w-[1300px] h-full mb-16">
+            <div className="mx-auto max-w-[1200px] w-[80%] h-full mb-16 relative">
               <Logo />
             </div>
             <p className="text-[12vw] leading-[1] font-[200] text-white">

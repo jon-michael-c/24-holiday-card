@@ -36,6 +36,10 @@ export default function Start(props) {
       opacity: 1,
       visibility: "visible",
       ease: "expo",
+      onComplete: () => {
+        document.querySelector(".loading").classList.add("hidden");
+        document.querySelector("#root").classList.add("ready");
+      },
     });
   });
   useEffect(() => {}, []);
