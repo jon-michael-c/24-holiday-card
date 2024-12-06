@@ -30,6 +30,23 @@
       "foreground": {
         "path": "/lottie/fireplace/foreground.json"
       }
+    },
+    "end": {
+      "background": {
+        "path": "/lottie/end/background.json"
+      },
+      "foreground": {
+        "path": "/lottie/end/foreground.json"
+      },
+      "reveal": {
+        "path": "/lottie/end/reveal.json"
+      },
+      "window": {
+        "path": "/lottie/end/window.json"
+      },
+      "wall": {
+        "path": "/lottie/end/wall.json"
+      }
     }
   }
 ]

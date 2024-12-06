@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
 import Loader from "./helpers/Loader";
 import Logo from "./components/logo";
+import Stage from "./components/stage";
 gsap.registerPlugin(TextPlugin);
 
 function App() {
@@ -172,7 +173,7 @@ function App() {
           </div>
         </div>
         {loading >= 100 && <Start lotties={lottieData} />}
-        <Text1 />
+        {loading >= 100 && <Stage />}
       </div>
     </>
   );

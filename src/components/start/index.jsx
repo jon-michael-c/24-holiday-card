@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import Fireplace from "../panels/Fireplace";
 import Tree from "../panels/Tree";
+import End from "../panels/End";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -30,21 +31,27 @@ export default function Start(props) {
       x: "-100%",
       ease: "expo",
     });
+    tl.to(".stage", {
+      duration: 1,
+      opacity: 1,
+      visibility: "visible",
+      ease: "expo",
+    });
   });
   useEffect(() => {}, []);
   return (
     <div className="square-frame" ref={square}>
       <div className="content">
         <div className="content-inner h-full w-full flex flex-col gap-8 justify-center items-center">
-          <div className="items relative scale-[4.2] top-[1181px] flex gap-8">
-            <div className="square-items">
+          <div className="items relative scale-[4.2] top-[1181px] flex justify-center gap-8 w-[80%] h-auto mx-auto">
+            <div className="square-items aspect-[0.7]">
               <Fireplace data={lotties[0].fireplace} />
             </div>
-            <div className="square-items">
+            <div className="square-items  aspect-[0.7]">
               <Tree data={lotties[0].christmasTree} />
             </div>
-            <div className="square-items">
-              <img src="/tiles/tile_3.png" />
+            <div className="square-items  aspect-[0.7]">
+              <End data={lotties[0].end} />
             </div>
           </div>
           <div className="flex justify-center items-center w-full">
