@@ -79,7 +79,7 @@ function App() {
   });
 
   useGSAP(() => {
-    if (false) {
+    if (loading >= 100) {
       introAnim();
     }
   }, [loading]);
@@ -172,7 +172,6 @@ function App() {
           </div>
         </div>
         {loading >= 100 && <Start lotties={lottieData} />}
-        {loading >= 100 && <Stage />}
       </div>
     </>
   );
