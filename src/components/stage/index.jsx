@@ -58,7 +58,7 @@ function Stage(props) {
         ref={(el) => (refs.current.line = el)}
         className="scroll-line bg-red w-[5px] h-[5000px]"
       ></div>
-      <div className="end-buffer h-[4000px]"></div>
+      <div className="end-buffer h-[6000px]"></div>
     </>
   );
 }
