@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import useStageAnimation from "./useStageAnim";
 import Phase1 from "./Phases/Phase1";
 import Phase2 from "./Phases/Phase2";
+import Phase3 from "./Phases/Phase3";
 
 function Stage(props) {
   const refs = useRef({
@@ -38,7 +39,18 @@ function Stage(props) {
             firePlace={(el) => (refs.current.firePlace = el)}
             fireFloor={(el) => (refs.current.fireFloor = el)}
             fireFore={(el) => (refs.current.fireFore = el)}
+            fireText1={(el) => (refs.current.fireText1 = el)}
+            fireText2={(el) => (refs.current.fireText2 = el)}
+            cap2={(el) => (refs.current.cap2 = el)}
             lotties={props.lotties[0].fireplace}
+          />
+          <Phase3
+            phase3={(el) => (refs.current.phase3 = el)}
+            treeBush={(el) => (refs.current.treeBush = el)}
+            treeWindow={(el) => (refs.current.treeWindow = el)}
+            treeFore={(el) => (refs.current.treeFore = el)}
+            treeBack={(el) => (refs.current.treeBack = el)}
+            lotties={props.lotties[0].christmasTree}
           />
         </div>
       </div>
