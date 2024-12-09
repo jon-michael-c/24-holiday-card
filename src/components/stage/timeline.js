@@ -7,6 +7,8 @@ const mainAmin = (refs) => {
   const { line, text1, text2, phase1, year1, year2, yearLine, dot1, dot2 } =
     refs.current;
 
+  const { phase2, fireBack, firePlace, fireFloor, fireFore } = refs.current;
+
   console.log("refs", refs);
 
   const tl = gsap.timeline({
@@ -36,7 +38,13 @@ const mainAmin = (refs) => {
     .to(year2, { text: { value: "2025" } })
     .to(phase1, { x: "-25%" })
     .to(text2, { text: { value: "comes to a close..." } })
-    .to(phase1, { x: "-150%" });
+    .to(phase1, { x: "-150%" })
+    .to(phase2, { opacity: 1 })
+    .to(fireBack, { x: "0%" })
+    .to(firePlace, { x: "0%" })
+    .to(fireFloor, { x: "0%" })
+    .to(fireFore, { x: "0%" })
+    .to(phase2, { width: "200%", x: "-24%" });
 };
 
 export default mainAmin;

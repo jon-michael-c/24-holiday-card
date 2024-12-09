@@ -27,12 +27,12 @@ function App() {
       opacity: 0,
       ease: "none",
     });
-    t1.from(loadingElm, {
+    t1.from(loadingElm.current, {
       duration: 1,
       scale: 1,
       ease: ease,
     });
-    t1.to(loadingElm, {
+    t1.to(loadingElm.current, {
       duration: 1,
       scale: 0.8,
       ease: ease,
@@ -107,17 +107,11 @@ function App() {
         setLoading(80);
         setLottieData(data);
 
-        loader.loadAudioFully("/audio/music.mp3").then((audio) => {
-          audio.muted = true;
-          audio.loop = true;
-          document.body.appendChild(audio);
-
-          setLoading(100);
-          gsap.to(".app-bg", {
-            duration: 0.2,
-            height: `100%`,
-            ease: "none",
-          });
+        setLoading(100);
+        gsap.to(".app-bg", {
+          duration: 0.2,
+          height: `100%`,
+          ease: "none",
         });
       });
   }, [loading]);
@@ -173,6 +167,7 @@ function App() {
         </div>
         {loading >= 100 && <Start lotties={lottieData} />}
       </div>
+      <audio id="music" src="/audio/music.mp3" loop></audio>
     </>
   );
 }

@@ -6,21 +6,6 @@ import Stage from "../stage";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
-/*
- t1.to(".square-frame", {
-      duration: 1,
-      translateX: "-100%",
-      ease: ease,
-    });
-    t1.to(".text1_line-1", {
-      duration: 2,
-      text: {
-        value: "s the year",
-      },
-      ease: "none",
-    });
-*/
-
 export default function Start(props) {
   const { lotties } = props;
   const square = useRef(null);
@@ -32,13 +17,14 @@ export default function Start(props) {
       duration: 1,
       x: "-100%",
       ease: "expo",
-      onComplete: () => setStart(true),
+      onComplete: () => {
+        setStart(true);
+        document.querySelector("#music").play();
+      },
     });
   });
 
-  useEffect(() => {
-    console.log("start", start);
-  }, [start]);
+  useEffect(() => {}, [start]);
 
   return (
     <>
@@ -68,7 +54,7 @@ export default function Start(props) {
           </div>
         </div>
       </div>
-      {start && <Stage />}
+      {start && <Stage lotties={lotties} />}
     </>
   );
 }

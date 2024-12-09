@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
 import useStageAnimation from "./useStageAnim";
 import Phase1 from "./Phases/Phase1";
+import Phase2 from "./Phases/Phase2";
 
-function Stage() {
+function Stage(props) {
   const refs = useRef({
     line: null,
     text1: null,
@@ -20,7 +21,7 @@ function Stage() {
   return (
     <>
       <div className="stage fixed top-0 left-0 w-full h-full opacity-0 invisible">
-        <div className="screen">
+        <div className="screen h-0">
           <Phase1
             phase1={(el) => (refs.current.phase1 = el)}
             text1={(el) => (refs.current.text1 = el)}
@@ -30,6 +31,14 @@ function Stage() {
             dot1={(el) => (refs.current.dot1 = el)}
             dot2={(el) => (refs.current.dot2 = el)}
             text2={(el) => (refs.current.text2 = el)}
+          />
+          <Phase2
+            phase2={(el) => (refs.current.phase2 = el)}
+            fireBack={(el) => (refs.current.fireBack = el)}
+            firePlace={(el) => (refs.current.firePlace = el)}
+            fireFloor={(el) => (refs.current.fireFloor = el)}
+            fireFore={(el) => (refs.current.fireFore = el)}
+            lotties={props.lotties[0].fireplace}
           />
         </div>
       </div>
