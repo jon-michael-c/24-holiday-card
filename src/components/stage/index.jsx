@@ -6,6 +6,7 @@ import { TextPlugin } from "gsap/all";
 function Stage() {
   const line = useRef(null);
   const text1 = useRef(null);
+  const text2 = useRef(null);
   const phase1 = useRef(null);
   const year1 = useRef(null);
   const year2 = useRef(null);
@@ -60,14 +61,22 @@ function Stage() {
     tl.to(yearLine.current, {
       height: "59%",
     });
+    tl.to(dot2.current, {
+      opacity: 1,
+      scale: 50,
+    });
     tl.to(year2.current, {
       text: {
         value: "2025",
       },
     });
-    tl.to(dot2.current, {
-      opacity: 1,
-      scale: 50,
+    tl.to(phase1.current, {
+      x: "-25%",
+    });
+    tl.to(text2.current, {
+      text: {
+        value: "comes to a close...",
+      },
     });
   });
   return (
@@ -92,9 +101,13 @@ function Stage() {
                 ref={dot2}
                 className="absolute bottom-[10%] left-0 -translate-x-1/2 h-[1px] w-[1px] rounded-full bg-purple opacity-0"
               ></div>
-
-              <p ref={year1}></p>
-              <p ref={year2}></p>
+              <div>
+                <p ref={year1}></p>
+                <p ref={year2}></p>
+              </div>
+              <div>
+                <p ref={text2}></p>
+              </div>
             </div>
           </div>
         </div>
