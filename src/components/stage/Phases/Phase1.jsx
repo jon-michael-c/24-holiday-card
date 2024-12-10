@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 const Phase1 = forwardRef(
   ({ text1, text2, year1, year2, yearLine, dot1, dot2, phase1 }, ref) => {
     return (
-      <div className="phase-1 h-full w-full relative" ref={phase1}>
+      <div className="phase phase-1 h-full w-full relative" ref={phase1}>
         <div className="flex items-center gap-4">
           <div className="w-[120px] h-auto aspect-square">
             <img src="/svgs/cap-1.svg" alt="cap-1" />

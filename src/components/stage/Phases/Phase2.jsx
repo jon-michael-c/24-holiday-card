@@ -23,7 +23,10 @@ const Phase2 = forwardRef(
       console.log(lotties);
     }, []);
     return (
-      <div className="phase-2 h-full w-full relative opacity-0" ref={phase2}>
+      <div
+        className="phase phase-2 h-full w-full relative opacity-0"
+        ref={phase2}
+      >
         <div
           ref={fireBack}
           className="absolute top-0 left-0 w-full h-full translate-x-full"

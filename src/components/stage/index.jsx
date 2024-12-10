@@ -3,6 +3,8 @@ import useStageAnimation from "./useStageAnim";
 import Phase1 from "./Phases/Phase1";
 import Phase2 from "./Phases/Phase2";
 import Phase3 from "./Phases/Phase3";
+import Phase4 from "./Phases/Phase4";
+import Phase5 from "./Phases/Phase5";
 
 function Stage(props) {
   const refs = useRef({
@@ -22,7 +24,7 @@ function Stage(props) {
   return (
     <>
       <div className="stage fixed top-0 left-0 w-full h-full opacity-0 invisible">
-        <div className="screen h-0">
+        <div className="screen h-[100vh]">
           <Phase1
             phase1={(el) => (refs.current.phase1 = el)}
             text1={(el) => (refs.current.text1 = el)}
@@ -50,15 +52,32 @@ function Stage(props) {
             treeWindow={(el) => (refs.current.treeWindow = el)}
             treeFore={(el) => (refs.current.treeFore = el)}
             treeBack={(el) => (refs.current.treeBack = el)}
+            treeGifts={(el) => (refs.current.treeGifts = el)}
+            treeOverlay={(el) => (refs.current.treeOverlay = el)}
+            treeCap={(el) => (refs.current.treeCap = el)}
+            treeText={(el) => (refs.current.treeText = el)}
             lotties={props.lotties[0].christmasTree}
+          />
+          <Phase4
+            phase4={(el) => (refs.current.phase4 = el)}
+            ph4Text={(el) => (refs.current.ph4Text = el)}
+            ph4Cap={(el) => (refs.current.ph4Cap = el)}
+          />
+          <Phase5
+            phase5={(el) => (refs.current.phase5 = el)}
+            endBack={(el) => (refs.current.endBack = el)}
+            endFore={(el) => (refs.current.endFore = el)}
+            endWall={(el) => (refs.current.endWall = el)}
+            endWindow={(el) => (refs.current.endWindow = el)}
+            lotties={props.lotties[0].end}
           />
         </div>
       </div>
       <div
         ref={(el) => (refs.current.line = el)}
-        className="scroll-line bg-red w-[5px] h-[5000px]"
+        className="scroll-line bg-red w-[5px] h-[8500px]"
       ></div>
-      <div className="end-buffer h-[6000px]"></div>
+      <div className="end-buffer h-[5000px]"></div>
     </>
   );
 }

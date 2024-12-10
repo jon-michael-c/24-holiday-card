@@ -18,7 +18,21 @@ const mainAmin = (refs) => {
     cap2,
   } = refs.current;
 
-  const { phase3, treeBush, treeWindow, treeFore, treeBack } = refs.current;
+  const {
+    phase3,
+    treeBush,
+    treeWindow,
+    treeFore,
+    treeBack,
+    treeGifts,
+    treeOverlay,
+    treeCap,
+    treeText,
+  } = refs.current;
+
+  const { phase4, ph4Text, ph4Cap } = refs.current;
+
+  const { phase5, endBack, endFore, endWall, endWindow } = refs.current;
 
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -40,6 +54,7 @@ const mainAmin = (refs) => {
 
   tl
     /* Phase 1 */
+    .to(phase1, { opacity: 1 })
     .to(text1, { duration: 1, text: { value: "s the year" } })
     .to(year1, { duration: 1, text: { value: "2024" } })
     .to(phase1, { x: "-25%" })
@@ -66,7 +81,41 @@ const mainAmin = (refs) => {
     .to(phase3, { opacity: 1 })
     .to(treeBack, { x: "0%" })
     .to(treeBush, { x: "0%" })
-    .to(treeWindow, { x: "0%" });
+    .to(treeWindow, { x: "0%" })
+    .to(treeFore, { x: "0%" })
+    .to(treeGifts, { x: "0%" })
+    .to(treeOverlay, { opacity: "1" })
+    .to(treeCap, { opacity: 1 })
+    .to(treeText, {
+      text: { value: "hat you've brought the world is worth celebrating." },
+      onComplete: () => {
+        let bushGroup = treeBush.querySelector("g");
+
+        if (bushGroup) {
+          bushGroup.style.filter = "url(#glow)";
+        }
+      },
+      onReverseComplete: () => {
+        let bushGroup = treeBush.querySelector("g");
+
+        if (bushGroup) {
+          bushGroup.style.filter = "none";
+        }
+      },
+    })
+    .to(phase3, { x: "-120%" })
+    /* Phase 4 */
+    .to(phase4, { opacity: 1 })
+    .to(ph4Cap, { opacity: 1 })
+    .to(ph4Text, {
+      text: { value: "nd there's a lot to celebrate if you look for it." },
+    })
+    .to(phase4, { x: "-120%" })
+    .to(phase5, { opacity: 1 })
+    .to(endBack, { x: "0%" })
+    .to(endFore, { x: "0%" })
+    .to(endWall, { x: "0%" })
+    .to(endWindow, { x: "0%" });
 };
 
 export default mainAmin;
