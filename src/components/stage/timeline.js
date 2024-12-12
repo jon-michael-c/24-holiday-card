@@ -1,11 +1,21 @@
 import gsap from "./gsapSetup";
 
-const mainAmin = (refs) => {
+const mainAmin = (refs, lottieRefs) => {
   document.querySelector(".loading").classList.add("hidden");
   document.querySelector("#root").classList.add("ready");
 
-  const { line, text1, text2, phase1, year1, year2, yearLine, dot1, dot2 } =
-    refs.current;
+  const {
+    line,
+    text1,
+    text2,
+    phase1,
+    year1,
+    year2,
+    yearLine,
+    dot1,
+    dot2,
+    cap1,
+  } = refs.current;
 
   const {
     phase2,
@@ -32,7 +42,28 @@ const mainAmin = (refs) => {
 
   const { phase4, ph4Text, ph4Cap } = refs.current;
 
-  const { phase5, endBack, endFore, endWall, endWindow } = refs.current;
+  const {
+    phase5,
+    endBack,
+    endFore,
+    endWall,
+    endWindow,
+    endReveal,
+    anim,
+    finalText,
+    lotties,
+  } = refs.current;
+
+  const starting = gsap.timeline();
+
+  starting
+    .to(".stage", {
+      duration: 1,
+      opacity: 1,
+      visibility: "visible",
+      ease: "expo",
+    })
+    .to(cap1, { opacity: 1, x: "0%" });
 
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -40,21 +71,28 @@ const mainAmin = (refs) => {
       start: "top top",
       end: "bottom top",
       scrub: true,
+      pin: true,
       markers: true,
+      snap: {
+        snapTo: 1 / 44,
+        directional: false,
+      },
+      onUpdate: (self) => {
+        const progressBar = document.querySelector(".progress-bar__fill");
+        progressBar.style.height = `${self.progress * 100}%`;
+      },
     },
     defaults: { ease: "none" },
   });
 
-  tl.to(".stage", {
+  let tl2 = gsap.timeline({ paused: true }).to(finalText, {
+    text: { value: "Happy Holidays <br> from" },
     duration: 1,
-    opacity: 1,
-    visibility: "visible",
     ease: "expo",
   });
 
   tl
     /* Phase 1 */
-    .to(phase1, { opacity: 1 })
     .to(text1, { duration: 1, text: { value: "s the year" } })
     .to(year1, { duration: 1, text: { value: "2024" } })
     .to(phase1, { x: "-25%" })
@@ -115,7 +153,19 @@ const mainAmin = (refs) => {
     .to(endBack, { x: "0%" })
     .to(endFore, { x: "0%" })
     .to(endWall, { x: "0%" })
-    .to(endWindow, { x: "0%" });
+    .to(endWindow, { x: "0%" })
+    .to(endReveal, { x: "0%" })
+    .to([endWall, endWindow, endBack, endFore], {
+      opacity: 0,
+      onComplete: () => {
+        const start = 25;
+        const end = 100;
+        const revealAnim = lottieRefs[0].current;
+        revealAnim.animationItem.loop = false;
+        revealAnim.playSegments([start, end], true);
+        tl2.play();
+      },
+    });
 };
 
 export default mainAmin;

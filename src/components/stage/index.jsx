@@ -1,12 +1,14 @@
-import React, { useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import useStageAnimation from "./useStageAnim";
 import Phase1 from "./Phases/Phase1";
 import Phase2 from "./Phases/Phase2";
 import Phase3 from "./Phases/Phase3";
 import Phase4 from "./Phases/Phase4";
 import Phase5 from "./Phases/Phase5";
+import ProgressBar from "../progressBar";
 
 function Stage(props) {
+  const [progress, setProgress] = useState(0);
   const refs = useRef({
     line: null,
     text1: null,
@@ -19,7 +21,14 @@ function Stage(props) {
     dot2: null,
   });
 
-  useStageAnimation(refs);
+  const revealAnim = useRef(null);
+  useStageAnimation(refs, [revealAnim]);
+
+  useEffect(() => {
+    const start = 0;
+    const end = 24;
+    revealAnim.current.playSegments([start, end], true);
+  }, []);
 
   return (
     <>
@@ -34,6 +43,7 @@ function Stage(props) {
             dot1={(el) => (refs.current.dot1 = el)}
             dot2={(el) => (refs.current.dot2 = el)}
             text2={(el) => (refs.current.text2 = el)}
+            cap1={(el) => (refs.current.cap1 = el)}
           />
           <Phase2
             phase2={(el) => (refs.current.phase2 = el)}
@@ -69,15 +79,19 @@ function Stage(props) {
             endFore={(el) => (refs.current.endFore = el)}
             endWall={(el) => (refs.current.endWall = el)}
             endWindow={(el) => (refs.current.endWindow = el)}
+            endReveal={(el) => (refs.current.endReveal = el)}
+            finalText={(el) => (refs.current.finalText = el)}
+            ref={revealAnim}
             lotties={props.lotties[0].end}
           />
         </div>
       </div>
       <div
         ref={(el) => (refs.current.line = el)}
-        className="scroll-line bg-red w-[5px] h-[8500px]"
+        className="scroll-line bg-red w-[5px] h-[9500px]"
       ></div>
       <div className="end-buffer h-[5000px]"></div>
+      <ProgressBar />
     </>
   );
 }

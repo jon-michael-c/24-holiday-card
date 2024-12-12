@@ -2,11 +2,14 @@
 import React, { forwardRef } from "react";
 
 const Phase1 = forwardRef(
-  ({ text1, text2, year1, year2, yearLine, dot1, dot2, phase1 }, ref) => {
+  ({ text1, text2, year1, year2, yearLine, dot1, dot2, phase1, cap1 }, ref) => {
     return (
       <div className="phase phase-1 h-full w-full relative" ref={phase1}>
         <div className="flex items-center gap-4">
-          <div className="w-[120px] h-auto aspect-square">
+          <div
+            ref={cap1}
+            className="w-[120px] h-auto aspect-square translate-x-[800%] opacity-0"
+          >
             <img src="/svgs/cap-1.svg" alt="cap-1" />
           </div>
           <p
@@ -31,9 +34,12 @@ const Phase1 = forwardRef(
             <p ref={year1}></p>
             <p ref={year2}></p>
           </div>
-          <div>
-            <p className="font-extralight text-nowrap" ref={text2}></p>
-          </div>
+        </div>
+        <div className="absolute  bottom-0 left-[50%]">
+          <p
+            className="font-extralight text-nowrap text-white text-[120px]"
+            ref={text2}
+          ></p>
         </div>
       </div>
     );

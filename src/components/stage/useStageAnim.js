@@ -1,12 +1,11 @@
-import { useEffect } from "react";
 import gsap from "./gsapSetup";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import mainAnim from "./timeline";
 
-const useStageAnimation = (refs) => {
+const useStageAnimation = (refs, lottieRefs) => {
   useGSAP(() => {
-    mainAnim(refs);
+    mainAnim(refs, lottieRefs);
 
     // Cleanup function to kill ScrollTrigger instances when component unmounts
     return () => {
