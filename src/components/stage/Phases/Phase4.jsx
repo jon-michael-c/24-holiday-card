@@ -9,7 +9,7 @@ const Phase4 = forwardRef(({ phase4, ph4Text, ph4Cap }, ref) => {
           <img
             ref={ph4Cap}
             className="w-[30%] h-auto aspect-square opacity-0"
-            src="/svgs/cap-1.svg"
+            src="/svgs/cap-3.svg"
           />
           <p
             ref={ph4Text}

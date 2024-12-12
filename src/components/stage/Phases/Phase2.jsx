@@ -35,7 +35,7 @@ const Phase2 = forwardRef(
         </div>
         <div
           ref={firePlace}
-          className="absolute top-0 left-0 w-full h-full translate-x-full"
+          className="absolute top-0 left-0 w-full h-full translate-x-full origin-[50%_250px]"
         >
           <Lottie animationData={fire.data} />
         </div>
@@ -51,18 +51,17 @@ const Phase2 = forwardRef(
         >
           <Lottie animationData={foreground.data} />
         </div>
-        <div className="fixed top-0 left-[30%] flex items-center gap-2">
+        <div className="absolute top-0 left-0 ml-[20%] h-[200px] flex items-center gap-2 z-[10]">
           <img
             ref={cap2}
-            className="w-[100px] h-auto aspect-square opacity-0"
+            className="w-[150px] h-auto aspect-square opacity-0"
             src="/svgs/cap-l.svg"
           />
           <p ref={fireText1} className=" text-[100px] text-midnight"></p>
         </div>
-        <p
-          ref={fireText2}
-          className="fixed bottom-0 left-0 text-midnight text-[100px]"
-        ></p>
+        <div className="absolute bottom-0 left-0 pl-[20%] h-[200px] z-[12]">
+          <p ref={fireText2} className=" text-midnight text-[100px]"></p>
+        </div>
       </div>
     );
   }
