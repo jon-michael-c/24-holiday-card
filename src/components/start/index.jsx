@@ -31,6 +31,14 @@ export default function Start(props) {
       <div className="square-frame" ref={square}>
         <div className="content">
           <div className="content-inner h-full w-full flex flex-col gap-8 justify-center items-center">
+            <div className="title text-center opacity-0">
+              <img
+                src="/svgs/logo.svg"
+                alt="logo"
+                className="w-[90%] h-auto mx-auto max-w-[550px] mb-4"
+              />
+              <h1 className="text-4xl text-white">Holiday Card 2024</h1>
+            </div>
             <div className="items relative scale-[4.2] top-[1181px] flex justify-center gap-8 w-[80%] h-auto mx-auto">
               <div className="square-items aspect-[0.7]">
                 <Fireplace data={lotties[0].fireplace} />
@@ -46,7 +54,7 @@ export default function Start(props) {
               <button
                 onClick={startAnim}
                 id="start-button"
-                className="border-2 border-purple text-white px-4 py-2 cursor-pointer opacity-0 uppercase text-2xl"
+                className="border-2 border-purple text-white px-8 py-2 leading-[1]  cursor-pointer opacity-0 align-middle text-2xl rounded-full hover:bg-purple transition-all"
               >
                 Click to Start
               </button>

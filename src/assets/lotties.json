@@ -47,6 +47,11 @@
       "wall": {
         "path": "/lottie/end/wall.json"
       }
+    },
+    "scroll": {
+      "scroll": {
+        "path": "/lottie/scroll/scroll.json"
+      }
     }
   }
 ]

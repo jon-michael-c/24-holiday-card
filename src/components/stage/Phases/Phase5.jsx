@@ -22,31 +22,31 @@ const Phase5 = forwardRef(
         <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center"></div>
         <div
           ref={endBack}
-          className="absolute top-0 left-0 w-full h-full translate-x-full"
+          className="absolute top-0 left-0 w-full h-full translate-x-full z-[-1]"
         >
           <Lottie animationData={background.data} />
         </div>
         <div
           ref={endWall}
-          className="absolute top-0 left-0 w-full h-full translate-x-full"
+          className="absolute top-0 left-0 w-full h-full translate-x-full z-[10] shade"
         >
           <Lottie animationData={wall.data} />
         </div>
         <div
           ref={endFore}
-          className="absolute top-0 left-0 w-full h-full translate-x-full"
+          className="absolute top-0 left-0 w-full h-full translate-x-full z-[4] shade"
         >
           <Lottie animationData={foreground.data} />
         </div>
         <div
           ref={endWindow}
-          className="absolute top-0 left-0 w-full h-full translate-x-full"
+          className="absolute top-0 left-0 w-full h-full translate-x-full z-[2] shade"
         >
           <Lottie animationData={window.data} />
         </div>
         <div
           ref={endReveal}
-          className="absolute top-0 left-0 w-full h-full translate-x-full"
+          className="absolute top-0 left-0 w-full h-full translate-x-full z-[2]"
         >
           <p
             ref={finalText}

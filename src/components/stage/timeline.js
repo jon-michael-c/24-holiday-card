@@ -72,7 +72,6 @@ const mainAmin = (refs, lottieRefs) => {
       end: "bottom top",
       scrub: true,
       pin: true,
-      markers: true,
       snap: {
         snapTo: 1 / 44,
         directional: false,
@@ -93,7 +92,13 @@ const mainAmin = (refs, lottieRefs) => {
 
   tl
     /* Phase 1 */
-    .to(text1, { duration: 1, text: { value: "s the year" } })
+    .to(text1, {
+      duration: 1,
+      text: { value: "s the year" },
+      onComplete: () => {
+        document.querySelector(".scroll-anim").style.opacity = "0";
+      },
+    })
     .to(year1, { duration: 1, text: { value: "2024" } })
     .to(phase1, { x: "-25%" })
     .to(dot1, { opacity: 1, scale: 50 })
@@ -104,8 +109,8 @@ const mainAmin = (refs, lottieRefs) => {
     .to(text2, { text: { value: "comes to a close..." } })
     .to(phase1, { x: "-150%" })
     /* Phase 2 */
-    .to(phase2, { opacity: 1 })
-    .to(fireBack, { x: "0%" })
+    .to(phase2, { opacity: 1 }, "<")
+    .to(fireBack, { x: "0%" }, "<")
     .to(firePlace, { x: "0%" })
     .to(fireFloor, { x: "0%" })
     .to(fireFore, { x: "0%" })
@@ -117,8 +122,8 @@ const mainAmin = (refs, lottieRefs) => {
     .to([fireText1, fireText2, cap2], { opacity: 0 }, "<")
     .to(phase2, { x: "-120%" })
     /* Phase 3 */
-    .to(phase3, { opacity: 1 })
-    .to(treeBack, { x: "0%" })
+    .to(phase3, { opacity: 1 }, "<")
+    .to(treeBack, { x: "0%" }, "<")
     .to(treeBush, { x: "0%" })
     .to(treeWindow, { x: "0%" })
     .to(treeFore, { x: "0%" })
@@ -144,18 +149,17 @@ const mainAmin = (refs, lottieRefs) => {
     })
     .to(phase3, { x: "-120%" })
     /* Phase 4 */
-    .to(phase4, { opacity: 1 })
+    .to(phase4, { opacity: 1 }, "<")
     .to(ph4Cap, { opacity: 1 })
     .to(ph4Text, {
       text: { value: "nd there's a lot to celebrate if you look for it." },
     })
     .to(phase4, { x: "-120%" })
-    .to(phase5, { opacity: 1 })
-    .to(endBack, { x: "0%" })
+    .to(phase5, { opacity: 1 }, "<")
+    .to(endBack, { x: "0%" }, "<")
     .to(endFore, { x: "0%" })
     .to(endWall, { x: "0%" })
-    .to(endWindow, { x: "0%" })
-    .to(endReveal, { x: "0%" })
+    .to([endReveal, endWindow], { x: "0%" })
     .to([endWall, endWindow, endBack, endFore], {
       opacity: 0,
       onComplete: () => {

@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
 import Loader from "./helpers/Loader";
 import Logo from "./components/logo";
-import Stage from "./components/stage";
+import Glow from "./components/filters/glow";
 gsap.registerPlugin(TextPlugin);
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
   const lastUpdateRef = useRef(Date.now());
 
   const introAnim = contextSafe(() => {
-    let ease = "power4.out";
+    let ease = "expo";
     let t1 = gsap.timeline();
 
     t1.to(loadingText, {
@@ -63,7 +63,7 @@ function App() {
         scale: 1,
         ease: ease,
       },
-      ">-=2.5"
+      ">-=1.5"
     );
 
     t1.to(".content-inner", {
@@ -72,6 +72,11 @@ function App() {
       ease: ease,
     });
     t1.to("#start-button", {
+      duration: 0.65,
+      opacity: 1,
+      ease: ease,
+    });
+    t1.to(".title", {
       duration: 0.65,
       opacity: 1,
       ease: ease,
@@ -104,9 +109,7 @@ function App() {
         setLoading(progress);
       })
       .then((data) => {
-        setLoading(80);
         setLottieData(data);
-
         setLoading(100);
         gsap.to(".app-bg", {
           duration: 0.2,
@@ -119,34 +122,7 @@ function App() {
   return (
     <>
       <div className="overflow-hidden w-full h-full relative">
-        <div className="hidden">
-          <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
-                <feFlood floodColor="yellow" floodOpacity="1" result="flood" />
-                <feComposite
-                  in="flood"
-                  in2="SourceAlpha"
-                  operator="in"
-                  result="coloredGlow"
-                />
-
-                <feGaussianBlur
-                  in="coloredGlow"
-                  stdDeviation="20"
-                  result="blurredGlow"
-                />
-
-                <feMerge>
-                  <feMergeNode in="blurredGlow" />
-                  <feMergeNode in="blurredGlow" />
-                  <feMergeNode in="blurredGlow" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-          </svg>
-        </div>
+        <Glow />
         <div className="app-bg"></div>
         <div className="load-bg"></div>
         <div

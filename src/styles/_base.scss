@@ -83,3 +83,10 @@ body {
   top: 0;
   left: 0;
 }
+
+.shade {
+  // Drop shadow
+  svg > g {
+    filter: url(#dropshadow);
+  }
+}

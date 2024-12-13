@@ -88,10 +88,10 @@ function Stage(props) {
       </div>
       <div
         ref={(el) => (refs.current.line = el)}
-        className="scroll-line bg-red w-[5px] h-[9500px]"
+        className="scroll-line bg-none opacity-0 w-[5px] h-[9500px]"
       ></div>
       <div className="end-buffer h-[5000px]"></div>
-      <ProgressBar />
+      <ProgressBar lotties={props.lotties[0].scroll} />
     </>
   );
 }
