@@ -19,12 +19,7 @@ const Phase5 = forwardRef(
     useEffect(() => {}, []);
     return (
       <div className="phase phase-5 h-full w-full relative" ref={phase5}>
-        <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
-          <p
-            ref={finalText}
-            className="text-white font-extralight text-[80px] text-center mb-[25%]"
-          ></p>
-        </div>
+        <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center"></div>
         <div
           ref={endBack}
           className="absolute top-0 left-0 w-full h-full translate-x-full"
@@ -53,6 +48,10 @@ const Phase5 = forwardRef(
           ref={endReveal}
           className="absolute top-0 left-0 w-full h-full translate-x-full"
         >
+          <p
+            ref={finalText}
+            className="text-white font-extralight text-[80px] text-center h-0"
+          ></p>
           <Lottie lottieRef={ref} animationData={reveal.data} />
         </div>
       </div>
