@@ -150,7 +150,7 @@ const mainAmin = (refs, lottieRefs) => {
     .to(phase3, { x: "-120%" })
     /* Phase 4 */
     .to(phase4, { opacity: 1 }, "<")
-    .to(ph4Cap, { opacity: 1 })
+    .to(ph4Cap, { opacity: 1, scale: 1 })
     .to(ph4Text, {
       text: { value: "nd there's a lot to celebrate if you look for it." },
     })

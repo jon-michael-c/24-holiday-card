@@ -7,6 +7,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 import Loader from "./helpers/Loader";
 import Logo from "./components/logo";
 import Glow from "./components/filters/glow";
+import Sound from "./components/sound";
 gsap.registerPlugin(TextPlugin);
 
 function App() {
@@ -123,6 +124,7 @@ function App() {
     <>
       <div className="overflow-hidden w-full h-full relative">
         <Glow />
+        <Sound />
         <div className="app-bg"></div>
         <div className="load-bg"></div>
         <div
