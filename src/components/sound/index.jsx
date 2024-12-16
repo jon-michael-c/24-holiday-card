@@ -17,7 +17,10 @@ function Sound() {
     });
   }, [muted]);
   return (
-    <div className="fixed top-6 right-6 rounded-full overflow-hidden z-[9999]">
+    <div
+      id="sound-btn"
+      className="fixed top-6 right-6 rounded-full overflow-hidden z-[9999] opacity-1"
+    >
       <button onClick={toggleMute} className="hover:cursor-pointer relative">
         <img
           src="/svgs/sound.svg"

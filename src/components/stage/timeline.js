@@ -4,29 +4,15 @@ const mainAmin = (refs, lottieRefs) => {
   document.querySelector(".loading").classList.add("hidden");
   document.querySelector("#root").classList.add("ready");
 
-  const {
-    line,
-    text1,
-    text2,
-    phase1,
-    year1,
-    year2,
-    yearLine,
-    dot1,
-    dot2,
-    cap1,
-  } = refs.current;
+  const panel1 = document.querySelector("#panel1");
+  const panel2 = document.querySelector("#panel2");
+  const panel3 = document.querySelector("#panel3");
 
-  const {
-    phase2,
-    fireBack,
-    firePlace,
-    fireFloor,
-    fireFore,
-    fireText1,
-    fireText2,
-    cap2,
-  } = refs.current;
+  const { line, text1, text2, phase1, year1, year2, yearLine, dot1, dot2 } =
+    refs.current;
+
+  const { phase2, fireBack, firePlace, fireFloor, fireFore, fireText1 } =
+    refs.current;
 
   const {
     phase3,
@@ -36,11 +22,10 @@ const mainAmin = (refs, lottieRefs) => {
     treeBack,
     treeGifts,
     treeOverlay,
-    treeCap,
     treeText,
   } = refs.current;
 
-  const { phase4, ph4Text, ph4Cap } = refs.current;
+  const { phase4, ph4Text } = refs.current;
 
   const {
     phase5,
@@ -56,14 +41,12 @@ const mainAmin = (refs, lottieRefs) => {
 
   const starting = gsap.timeline();
 
-  starting
-    .to(".stage", {
-      duration: 1,
-      opacity: 1,
-      visibility: "visible",
-      ease: "expo",
-    })
-    .to(cap1, { opacity: 1, x: "0%" });
+  starting.to(".stage", {
+    duration: 1,
+    opacity: 1,
+    visibility: "visible",
+    ease: "expo",
+  });
 
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -78,7 +61,7 @@ const mainAmin = (refs, lottieRefs) => {
       },
       onUpdate: (self) => {
         const progressBar = document.querySelector(".progress-bar__fill");
-        progressBar.style.height = `${self.progress * 100}%`;
+        progressBar.style.width = `${self.progress * 100}%`;
       },
     },
     defaults: { ease: "none" },
@@ -94,14 +77,14 @@ const mainAmin = (refs, lottieRefs) => {
     /* Phase 1 */
     .to(text1, {
       duration: 1,
-      text: { value: "s the year" },
+      text: { value: "As the year" },
       onComplete: () => {
         document.querySelector(".scroll-anim").style.opacity = "0";
       },
     })
     .to(year1, { duration: 1, text: { value: "2024" } })
-    .to(phase1, { x: "-25%" })
-    .to(dot1, { opacity: 1, scale: 50 })
+    .to(phase1, { x: "-25%" }, "<")
+    .to(dot1, { opacity: 1, scale: 50 }, "<")
     .to(yearLine, { height: "59%" })
     .to(dot2, { opacity: 1, scale: 50 })
     .to(year2, { text: { value: "2025" } })
@@ -109,29 +92,56 @@ const mainAmin = (refs, lottieRefs) => {
     .to(text2, { text: { value: "comes to a close..." } })
     .to(phase1, { x: "-150%" })
     /* Phase 2 */
-    .to(phase2, { opacity: 1 }, "<")
+    .to(
+      phase2,
+      {
+        opacity: 1,
+        onComplete: () => {
+          panel1.play();
+        },
+        onReverseComplete: () => {
+          panel1.pause();
+        },
+      },
+      "<"
+    )
     .to(fireBack, { x: "0%" }, "<")
     .to(firePlace, { x: "0%" })
     .to(fireFloor, { x: "0%" })
     .to(fireFore, { x: "0%" })
     .to([fireBack, firePlace, fireFloor, fireFore], { scale: 4.5 })
-    .to(cap2, { opacity: 1 })
-    .to(fireText1, { text: { value: "ook back at what" } })
-    .to(fireText2, { text: { value: "you've accomplished" } })
+    .to(fireText1, {
+      text: { value: "Look back at what <br> you've accomplished." },
+    })
     .to([fireBack, firePlace, fireFloor, fireFore], { scale: 1 })
-    .to([fireText1, fireText2, cap2], { opacity: 0 }, "<")
+    .to([fireText1], { opacity: 0 }, "<")
     .to(phase2, { x: "-120%" })
     /* Phase 3 */
-    .to(phase3, { opacity: 1 }, "<")
+    .to(
+      phase3,
+      {
+        opacity: 1,
+        onComplete: () => {
+          panel1.pause();
+          panel2.play();
+        },
+        onReverseComplete: () => {
+          panel1.play();
+          panel2.pause();
+        },
+      },
+      "<"
+    )
     .to(treeBack, { x: "0%" }, "<")
-    .to(treeBush, { x: "0%" })
-    .to(treeWindow, { x: "0%" })
     .to(treeFore, { x: "0%" })
-    .to(treeGifts, { x: "0%" })
+    .to(treeWindow, { x: "0%" })
+    .to(treeBush, { x: "0%" })
+    .to(treeGifts, { x: "0%" }, "<")
     .to(treeOverlay, { opacity: "1" })
-    .to(treeCap, { opacity: 1 })
     .to(treeText, {
-      text: { value: "hat you've brought the world is worth celebrating." },
+      text: {
+        value: "What you've brought <br> the world is worth <br> celebrating.",
+      },
       onComplete: () => {
         let bushGroup = treeBush.querySelector("g");
 
@@ -149,13 +159,39 @@ const mainAmin = (refs, lottieRefs) => {
     })
     .to(phase3, { x: "-120%" })
     /* Phase 4 */
-    .to(phase4, { opacity: 1 }, "<")
-    .to(ph4Cap, { opacity: 1, scale: 1 })
+    .to(
+      phase4,
+      {
+        opacity: 1,
+        onComplete: () => {
+          panel2.pause();
+        },
+        onReverseComplete: () => {
+          panel2.play();
+        },
+      },
+      "<"
+    )
     .to(ph4Text, {
-      text: { value: "nd there's a lot to celebrate if you look for it." },
+      text: {
+        value:
+          "nd there's a lot to celebrate if you look for it. After all, the magic’s in the details",
+      },
     })
     .to(phase4, { x: "-120%" })
-    .to(phase5, { opacity: 1 }, "<")
+    .to(
+      phase5,
+      {
+        opacity: 1,
+        onComplete: () => {
+          panel3.play();
+        },
+        onReverseComplete: () => {
+          panel3.pause();
+        },
+      },
+      "<"
+    )
     .to(endBack, { x: "0%" }, "<")
     .to(endFore, { x: "0%" })
     .to(endWall, { x: "0%" })

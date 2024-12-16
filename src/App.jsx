@@ -124,7 +124,6 @@ function App() {
     <>
       <div className="overflow-hidden w-full h-full relative">
         <Glow />
-        <Sound />
         <div className="app-bg"></div>
         <div className="load-bg"></div>
         <div
@@ -146,6 +145,9 @@ function App() {
         {loading >= 100 && <Start lotties={lottieData} />}
       </div>
       <audio id="music" src="/audio/music.mp3" loop></audio>
+      <audio id="panel1" src="/audio/panel-1.mp3" loop></audio>
+      <audio id="panel2" src="/audio/panel-2.mp3" loop></audio>
+      <audio id="panel3" src="/audio/panel-3.mp3" loop></audio>
     </>
   );
 }

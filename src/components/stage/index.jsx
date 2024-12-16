@@ -6,6 +6,7 @@ import Phase3 from "./Phases/Phase3";
 import Phase4 from "./Phases/Phase4";
 import Phase5 from "./Phases/Phase5";
 import ProgressBar from "../progressBar";
+import Sound from "../sound";
 
 function Stage(props) {
   const [progress, setProgress] = useState(0);
@@ -32,7 +33,8 @@ function Stage(props) {
 
   return (
     <>
-      <div className="stage fixed top-0 left-0 w-full h-full opacity-0 invisible">
+      <div className="stage fixed top-0 left-0 w-full h-full opacity-0 invisible z-[9999]">
+        <Sound />
         <div className="screen h-[100vh]">
           <Phase1
             phase1={(el) => (refs.current.phase1 = el)}
@@ -43,7 +45,6 @@ function Stage(props) {
             dot1={(el) => (refs.current.dot1 = el)}
             dot2={(el) => (refs.current.dot2 = el)}
             text2={(el) => (refs.current.text2 = el)}
-            cap1={(el) => (refs.current.cap1 = el)}
           />
           <Phase2
             phase2={(el) => (refs.current.phase2 = el)}
@@ -52,8 +53,6 @@ function Stage(props) {
             fireFloor={(el) => (refs.current.fireFloor = el)}
             fireFore={(el) => (refs.current.fireFore = el)}
             fireText1={(el) => (refs.current.fireText1 = el)}
-            fireText2={(el) => (refs.current.fireText2 = el)}
-            cap2={(el) => (refs.current.cap2 = el)}
             lotties={props.lotties[0].fireplace}
           />
           <Phase3
@@ -64,14 +63,12 @@ function Stage(props) {
             treeBack={(el) => (refs.current.treeBack = el)}
             treeGifts={(el) => (refs.current.treeGifts = el)}
             treeOverlay={(el) => (refs.current.treeOverlay = el)}
-            treeCap={(el) => (refs.current.treeCap = el)}
             treeText={(el) => (refs.current.treeText = el)}
             lotties={props.lotties[0].christmasTree}
           />
           <Phase4
             phase4={(el) => (refs.current.phase4 = el)}
             ph4Text={(el) => (refs.current.ph4Text = el)}
-            ph4Cap={(el) => (refs.current.ph4Cap = el)}
           />
           <Phase5
             phase5={(el) => (refs.current.phase5 = el)}

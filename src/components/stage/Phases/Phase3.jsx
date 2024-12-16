@@ -13,7 +13,6 @@ const Phase3 = forwardRef(
       treeGifts,
       treeOverlay,
       treeText,
-      treeCap,
       lotties,
     },
     ref
@@ -26,14 +25,10 @@ const Phase3 = forwardRef(
           className="absolute top-0 left-0 w-full h-full bg-purple z-[3] opacity-0"
         ></div>
         <div className="absolute top-0 left-0 w-[70%] leading-[1.13] h-full z-[5] p-[6%]">
-          <div ref={treeCap} className="flex items-start gap-4 opacity-0">
-            <img
-              src="/svgs/cap-w.svg"
-              className="w-[200px] h-auto aspect-square"
-            />
+          <div className="opacity-1">
             <p
               ref={treeText}
-              className="text-white font-extralight text-[75px]"
+              className="dropcap dropcap-3 text-white font-extralight text-[75px] text-nowrap"
             ></p>
           </div>
         </div>
@@ -64,7 +59,7 @@ const Phase3 = forwardRef(
         </div>
         <div
           ref={treeGifts}
-          className="absolute top-0 left-0 w-full h-full translate-x-full z-[4]"
+          className="absolute top-0 left-0 w-full h-full translate-x-full z-[3]"
         >
           <Lottie animationData={gifts.data} />
         </div>

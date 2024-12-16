@@ -90,3 +90,45 @@ body {
     filter: url(#dropshadow);
   }
 }
+
+.dropcap {
+  &::first-letter {
+    background-image: url("/svgs/cap-1.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    float: left;
+    font-size: 350px;
+    line-height: 0.5;
+    color: transparent;
+  }
+
+  &.dropcap-2 {
+    &::first-letter {
+      background-image: url("/svgs/cap-l.svg");
+      color: transparent;
+      line-height: 0.5;
+      margin-left: 0rem;
+    }
+  }
+
+  &.dropcap-3 {
+    &::first-letter {
+      background-image: url("/svgs/cap-w.svg");
+      color: transparent;
+      line-height: 0.85;
+      margin-left: 0rem;
+      font-size: 300px;
+    }
+  }
+
+  &.dropcap-4 {
+    &::first-letter {
+      background-image: url("/svgs/cap-3.svg");
+      color: transparent;
+      line-height: 0.6;
+      font-size: 280px;
+      margin-right: 15px;
+    }
+  }
+}
