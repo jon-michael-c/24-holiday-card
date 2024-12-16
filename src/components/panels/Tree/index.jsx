@@ -10,7 +10,7 @@ const Tree = (props) => {
     if (false) leaves.style.filter = "url(#glow)";
   }, []);
   return (
-    <div className="tree h-full relative w-[220%] translate-x-[-51%]">
+    <div className="tree h-full relative sm:w-[220%] sm:translate-x-[-51%]">
       <div className="tree__window absolute top-0 left-0 w-full h-full z-[5]">
         <Lottie
           animationData={window.data}

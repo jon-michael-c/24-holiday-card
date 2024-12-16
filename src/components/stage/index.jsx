@@ -53,6 +53,7 @@ function Stage(props) {
             fireFloor={(el) => (refs.current.fireFloor = el)}
             fireFore={(el) => (refs.current.fireFore = el)}
             fireText1={(el) => (refs.current.fireText1 = el)}
+            fireText2={(el) => (refs.current.fireText2 = el)}
             lotties={props.lotties[0].fireplace}
           />
           <Phase3

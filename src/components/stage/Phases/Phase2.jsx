@@ -5,7 +5,16 @@ import Lottie from "lottie-react";
 
 const Phase2 = forwardRef(
   (
-    { phase2, fireBack, firePlace, fireFloor, fireFore, fireText1, lotties },
+    {
+      phase2,
+      fireBack,
+      firePlace,
+      fireFloor,
+      fireFore,
+      fireText1,
+      fireText2,
+      lotties,
+    },
     ref
   ) => {
     const { background, fire, floor, foreground } = lotties;
@@ -38,10 +47,14 @@ const Phase2 = forwardRef(
         >
           <Lottie animationData={foreground.data} />
         </div>
-        <div className="fixed top-0 left-0 text-center justify-center w-full flex items-center gap-2">
+        <div className="fixed top-0 left-0 text-center justify-center w-full flex flex-col items-center gap-2">
           <p
             ref={fireText1}
             className="text-nowrap dropcap dropcap-2 text-[100px] text-midnight"
+          ></p>
+          <p
+            ref={fireText2}
+            className="text-nowrap text-[100px] text-midnight"
           ></p>
         </div>
       </div>

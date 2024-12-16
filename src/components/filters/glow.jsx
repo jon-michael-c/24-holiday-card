@@ -5,14 +5,15 @@ function Glow() {
     <div className="hidden">
       <svg>
         <defs>
-          <filter id="dropshadow" height="130%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
-            <feOffset dx="2" dy="2" result="offsetblur" />
+          <filter id="dropshadow" height="150%" width="150%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="35" result="blur" />
+            <feOffset dx="13" dy="13" result="offsetblur" />
             <feComponentTransfer>
-              <feFuncA type="linear" slope="0.5" />
+              <feFuncA type="linear" slope="0.7" />
             </feComponentTransfer>
             <feMerge>
-              <feMergeNode /> <feMergeNode in="SourceGraphic" />
+              <feMergeNode in="offsetblur" />
+              <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
         </defs>

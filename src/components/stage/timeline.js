@@ -11,8 +11,15 @@ const mainAmin = (refs, lottieRefs) => {
   const { line, text1, text2, phase1, year1, year2, yearLine, dot1, dot2 } =
     refs.current;
 
-  const { phase2, fireBack, firePlace, fireFloor, fireFore, fireText1 } =
-    refs.current;
+  const {
+    phase2,
+    fireBack,
+    firePlace,
+    fireFloor,
+    fireFore,
+    fireText1,
+    fireText2,
+  } = refs.current;
 
   const {
     phase3,
@@ -111,10 +118,13 @@ const mainAmin = (refs, lottieRefs) => {
     .to(fireFore, { x: "0%" })
     .to([fireBack, firePlace, fireFloor, fireFore], { scale: 4.5 })
     .to(fireText1, {
-      text: { value: "Look back at what <br> you've accomplished." },
+      text: { value: "Look back at what" },
+    })
+    .to(fireText2, {
+      text: { value: "you've accomplished." },
     })
     .to([fireBack, firePlace, fireFloor, fireFore], { scale: 1 })
-    .to([fireText1], { opacity: 0 }, "<")
+    .to([fireText1, fireText2], { opacity: 0 }, "<")
     .to(phase2, { x: "-120%" })
     /* Phase 3 */
     .to(
@@ -175,7 +185,7 @@ const mainAmin = (refs, lottieRefs) => {
     .to(ph4Text, {
       text: {
         value:
-          "nd there's a lot to celebrate if you look for it. After all, the magic’s in the details",
+          "nd there's a lot to celebrate if you look for it. After all, the magic’s in the details...",
       },
     })
     .to(phase4, { x: "-120%" })

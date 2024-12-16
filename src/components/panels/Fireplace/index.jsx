@@ -3,14 +3,9 @@ import Lottie from "lottie-react";
 
 const Fireplace = (props) => {
   const { background, foreground, fire, floor } = props.data;
-  useEffect(() => {
-    let leaves =
-      document.querySelector("g[clip-path='url(#__lottie_element_1210)']") ??
-      document.querySelector("g[clip-path='url(#__lottie_element_314)']");
-    if (false) leaves.style.filter = "url(#glow)";
-  }, []);
+  useEffect(() => {}, []);
   return (
-    <div className="tree h-full relative w-[220%] translate-x-[-27%]">
+    <div className="tree h-full relative sm:w-[220%] sm:translate-x-[-27%]">
       <div className="tree__window absolute top-0 left-0 w-full h-full z-[-2]">
         <Lottie
           animationData={background.data}

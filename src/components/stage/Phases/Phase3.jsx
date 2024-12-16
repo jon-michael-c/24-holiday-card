@@ -53,7 +53,7 @@ const Phase3 = forwardRef(
         </div>
         <div
           ref={treeFore}
-          className="absolute top-0 left-0 w-full h-full translate-x-full"
+          className="absolute top-0 left-0 w-full h-full translate-x-full shade"
         >
           <Lottie animationData={foreground.data} />
         </div>

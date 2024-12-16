@@ -30,7 +30,7 @@ export default function Start(props) {
     <>
       <div className="square-frame" ref={square}>
         <div className="content">
-          <div className="content-inner h-full w-full flex flex-col gap-8 justify-center items-center">
+          <div className="content-inner h-full w-full flex flex-col gap-6 justify-center items-center">
             <div className="title text-center opacity-0">
               <img
                 src="/svgs/logo.svg"
@@ -39,14 +39,14 @@ export default function Start(props) {
               />
               <h1 className="text-4xl text-white">Holiday Card 2024</h1>
             </div>
-            <div className="items relative scale-[4.2] top-[1181px] flex justify-center gap-8 w-[80%] h-auto mx-auto">
-              <div className="square-items aspect-[0.7]">
+            <div className="items relative scale-[4.2] top-[1181px] flex flex-col sm:flex-row justify-center gap-8 w-[80%] h-[50%] mx-auto">
+              <div className="square-items sm:aspect-[0.65]">
                 <Fireplace data={lotties[0].fireplace} />
               </div>
-              <div className="square-items  aspect-[0.7]">
+              <div className="square-items  sm:aspect-[0.65]">
                 <Tree data={lotties[0].christmasTree} />
               </div>
-              <div className="square-items  aspect-[0.7]">
+              <div className="square-items  sm:aspect-[0.65]">
                 <End data={lotties[0].end} />
               </div>
             </div>

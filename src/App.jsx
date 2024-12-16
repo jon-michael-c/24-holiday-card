@@ -134,10 +134,10 @@ function App() {
             <div className="mx-auto max-w-[1200px] w-[80%] h-full mb-16 relative">
               <Logo />
             </div>
-            <p className="text-[12vw] leading-[1] font-[200] text-white">
+            <p className="text-[20vw] sm:text-[12vw] leading-[1] font-[200] text-white">
               {Math.round(loading, 2)}%
             </p>
-            <h1 className="loading-text text-[4vw] font-[200] text-white">
+            <h1 className="loading-text text-[13vw] sm:text-[4vw] font-[200] text-white">
               Magic Loading...
             </h1>
           </div>

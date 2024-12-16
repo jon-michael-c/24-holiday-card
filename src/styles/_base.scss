@@ -51,7 +51,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 0%;
-  height: auto;
+  height: 100%;
   aspect-ratio: 1;
   overflow: hidden;
 
@@ -72,6 +72,10 @@ body {
     overflow: hidden;
     width: 450px;
     height: auto;
+
+    @media (max-width: 768px) {
+      height: 100px;
+    }
   }
 }
 
@@ -101,6 +105,10 @@ body {
     font-size: 350px;
     line-height: 0.5;
     color: transparent;
+
+    @media screen and (max-width: 768px) {
+      font-size: 200px;
+    }
   }
 
   &.dropcap-2 {
@@ -108,7 +116,7 @@ body {
       background-image: url("/svgs/cap-l.svg");
       color: transparent;
       line-height: 0.5;
-      margin-left: 0rem;
+      margin-right: 0.5rem;
     }
   }
 
