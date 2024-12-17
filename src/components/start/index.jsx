@@ -20,6 +20,8 @@ export default function Start(props) {
       onComplete: () => {
         setStart(true);
         document.querySelector("#music").play();
+        let squareFrame = document.querySelector(".square-frame > .content");
+        squareFrame.style.display = "none";
       },
     });
   });
