@@ -130,7 +130,9 @@ const mainAmin = (refs, lottieRefs) => {
       text: { value: "you've accomplished." },
     });
   } else {
-    tl.to(fireText1, { value: "Look back at what you've accomplished." });
+    tl.to(fireText1, {
+      text: { value: "Look back at what <br> you've accomplished." },
+    });
   }
   tl.to([fireBack, firePlace, fireFloor, fireFore], { scale: 1 })
     .to([fireText1, fireText2], { opacity: 0 }, "<")
