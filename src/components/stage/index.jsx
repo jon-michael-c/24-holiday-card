@@ -22,13 +22,20 @@ function Stage(props) {
     dot2: null,
   });
 
+  const lottieRefs = {
+    revealAnim: useRef(null),
+    revealMobile: useRef(null),
+  };
+
   const revealAnim = useRef(null);
-  useStageAnimation(refs, [revealAnim]);
+  const revealMobile = useRef(null);
+  useStageAnimation(refs, lottieRefs);
 
   useEffect(() => {
     const start = 0;
     const end = 24;
-    revealAnim.current.playSegments([start, end], true);
+    console.log(revealAnim);
+    //revealAnim.current.playSegments([start, end], true);
   }, []);
 
   return (
@@ -78,8 +85,9 @@ function Stage(props) {
             endWall={(el) => (refs.current.endWall = el)}
             endWindow={(el) => (refs.current.endWindow = el)}
             endReveal={(el) => (refs.current.endReveal = el)}
+            endRevealMobile={(el) => (refs.current.endRevealMobile = el)}
             finalText={(el) => (refs.current.finalText = el)}
-            ref={revealAnim}
+            lottieRefs={lottieRefs}
             lotties={props.lotties[0].end}
           />
         </div>

@@ -118,6 +118,10 @@ body {
       font-size: 250px;
       line-height: 0.5;
       margin-right: 0.5rem;
+
+      @media screen and (max-width: 768px) {
+        font-size: 150px;
+      }
     }
   }
 
@@ -128,6 +132,15 @@ body {
       line-height: 0.85;
       margin-left: 0rem;
       font-size: 300px;
+    }
+
+    @media screen and (max-width: 768px) {
+      &::first-letter {
+        font-size: 150px;
+        line-height: 0.55;
+        margin-left: 0rem;
+        margin-right: -1rem;
+      }
     }
   }
 

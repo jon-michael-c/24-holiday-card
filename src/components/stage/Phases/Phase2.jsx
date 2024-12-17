@@ -53,11 +53,11 @@ const Phase2 = forwardRef(
         <div className="fixed top-0 left-0 text-center justify-center w-full flex flex-col items-center gap-2 z-[11] mt-8">
           <p
             ref={fireText1}
-            className="text-nowrap dropcap dropcap-2 text-[80px] text-midnight"
+            className="text-nowrap dropcap dropcap-2 text-[30px] sm:text-[80px] text-midnight"
           ></p>
           <p
             ref={fireText2}
-            className="-mt-8 text-nowrap text-[80px] text-midnight"
+            className="-mt-8 text-nowrap text-[30px] sm:text-[80px] text-midnight"
           ></p>
         </div>
       </div>

@@ -4,6 +4,7 @@ const mainAmin = (refs, lottieRefs) => {
   document.querySelector(".loading").classList.add("hidden");
   document.querySelector("#root").classList.add("ready");
 
+  const isMobile = window.innerWidth < 768;
   const panel1 = document.querySelector("#panel1");
   const panel2 = document.querySelector("#panel2");
   const panel3 = document.querySelector("#panel3");
@@ -41,6 +42,7 @@ const mainAmin = (refs, lottieRefs) => {
     endWall,
     endWindow,
     endReveal,
+    endRevealMobile,
     anim,
     finalText,
     lotties,
@@ -97,7 +99,7 @@ const mainAmin = (refs, lottieRefs) => {
     .to(yearLine, { height: "59%" })
     .to(dot2, { opacity: 1, scale: 50 })
     .to(year2, { text: { value: "2025" } });
-  if (window.innerWidth >= 768) {
+  if (!isMobile) {
     tl.to(phase1, { x: "-25%" });
   }
   tl.to(text2, { text: { value: "comes to a close..." } })
@@ -120,14 +122,17 @@ const mainAmin = (refs, lottieRefs) => {
     .to(firePlace, { x: "0%" })
     .to(fireFloor, { x: "0%" })
     .to(fireFore, { x: "0%" })
-    .to([fireBack, firePlace, fireFloor, fireFore], { scale: 4.5 })
-    .to(fireText1, {
+    .to([fireBack, firePlace, fireFloor, fireFore], { scale: 4.5 });
+  if (!isMobile) {
+    tl.to(fireText1, {
       text: { value: "Look back at what" },
-    })
-    .to(fireText2, {
+    }).to(fireText2, {
       text: { value: "you've accomplished." },
-    })
-    .to([fireBack, firePlace, fireFloor, fireFore], { scale: 1 })
+    });
+  } else {
+    tl.to(fireText1, { value: "Look back at what you've accomplished." });
+  }
+  tl.to([fireBack, firePlace, fireFloor, fireFore], { scale: 1 })
     .to([fireText1, fireText2], { opacity: 0 }, "<")
     .to(phase2, { x: "-120%" })
     /* Phase 3 */
@@ -147,7 +152,7 @@ const mainAmin = (refs, lottieRefs) => {
       "<"
     )
     .to(treeBack, { x: "0%" }, "<");
-  if (window.innerWidth >= 768) {
+  if (!isMobile) {
     tl.to(treeFore, { x: "0%" }).to(treeWindow, { x: "0%" });
   } else {
     tl.to(treeFore, { opacity: "0%" }, "<").to(
@@ -200,6 +205,7 @@ const mainAmin = (refs, lottieRefs) => {
       },
     })
     .to(phase4, { x: "-120%" })
+    /* Phase 5 */
     .to(
       phase5,
       {
@@ -216,16 +222,23 @@ const mainAmin = (refs, lottieRefs) => {
     .to(endBack, { x: "0%" }, "<")
     .to(endFore, { x: "0%" })
     .to(endWall, { x: "0%" })
-    .to([endReveal, endWindow], { x: "0%" })
+    .to([endReveal, endWindow, endRevealMobile], { x: "0%" })
     .to([endWall, endWindow, endBack, endFore], {
       opacity: 0,
       onComplete: () => {
-        const start = 25;
-        const end = 100;
-        const revealAnim = lottieRefs[0].current;
-        revealAnim.animationItem.loop = false;
-        revealAnim.playSegments([start, end], true);
-        tl2.play();
+        if (!isMobile) {
+          const start = 25;
+          const end = 100;
+          const revealAnim = lottieRefs.revealAnim.current;
+          revealAnim.animationItem.loop = false;
+          revealAnim.playSegments([start, end], true);
+          tl2.play();
+        } else {
+          const revealAnimMobile = lottieRefs.revealMobile.current;
+          revealAnimMobile.animationItem.loop = false;
+          revealAnimMobile.playSegments([25, 100], true);
+          tl2.play();
+        }
       },
     });
 };
