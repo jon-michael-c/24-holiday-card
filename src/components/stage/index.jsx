@@ -34,8 +34,8 @@ function Stage(props) {
   useEffect(() => {
     const start = 0;
     const end = 24;
-    console.log(revealAnim);
-    //revealAnim.current.playSegments([start, end], true);
+    lottieRefs.revealAnim.current.playSegments([start, end], true);
+    lottieRefs.revealMobile.current.playSegments([start, end], true);
   }, []);
 
   return (

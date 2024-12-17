@@ -18,9 +18,7 @@ const Phase2 = forwardRef(
     ref
   ) => {
     const { background, fire, floor, foreground } = lotties;
-    useEffect(() => {
-      console.log(lotties);
-    }, []);
+    useEffect(() => {}, []);
     return (
       <div
         className="phase-2 w-[250%] left-[-75%] sm:left-[unset] h-full sm:w-full relative opacity-0"
@@ -34,7 +32,7 @@ const Phase2 = forwardRef(
         </div>
         <div
           ref={firePlace}
-          className="absolute top-0 left-0 w-full h-full translate-x-full origin-[50%_130px] sm:origin-[50%_160px] z-[10] shade"
+          className="absolute top-0 left-0 w-full h-full translate-x-full origin-[50%_130px] sm:origin-[50%_250px] z-[10] shade"
         >
           <Lottie animationData={fire.data} />
         </div>
@@ -50,7 +48,7 @@ const Phase2 = forwardRef(
         >
           <Lottie animationData={foreground.data} />
         </div>
-        <div className="fixed top-0 left-0 text-center justify-center w-full flex flex-col items-center gap-2 z-[11] mt-16 sm:mt-8">
+        <div className="fixed top-0 left-0 text-center justify-center w-full flex flex-col items-center gap-2 z-[11] mt-16 sm:mt-8 ml-[-10px] sm:ml-0">
           <p
             ref={fireText1}
             className="text-nowrap dropcap dropcap-2 text-[30px] sm:text-[80px] text-midnight"

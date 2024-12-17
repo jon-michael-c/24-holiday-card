@@ -93,9 +93,9 @@ const mainAmin = (refs, lottieRefs) => {
   if (window.innerWidth >= 768) {
     tl.to(phase1, { x: "-25%" }, "<");
   }
-  tl.to(dot1, { opacity: 1, scale: 50 }, "<")
+  tl.to(dot1, { opacity: 1, scale: !isMobile ? 50 : 20 }, "<")
     .to(yearLine, { height: "59%" })
-    .to(dot2, { opacity: 1, scale: 50 })
+    .to(dot2, { opacity: 1, scale: !isMobile ? 50 : 20 })
     .to(year2, { text: { value: "2025" } });
   if (!isMobile) {
     tl.to(phase1, { x: "-25%" });
@@ -122,7 +122,9 @@ const mainAmin = (refs, lottieRefs) => {
     .to(fireFloor, { x: "0%" })
     .to(fireFore, { x: "0%" })
     .to(fireFore, { duration: 2, x: "0%" })
-    .to([fireBack, firePlace, fireFloor, fireFore], { scale: 4.5 });
+    .to([firePlace], {
+      scale: "5",
+    });
   if (!isMobile) {
     tl.to(fireText1, {
       text: { value: "Look back at what" },

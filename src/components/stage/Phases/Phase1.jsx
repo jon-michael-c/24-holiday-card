@@ -8,7 +8,7 @@ const Phase1 = forwardRef(
         className="phase phase-1 h-full w-full relative flex flex-col justify-between"
         ref={phase1}
       >
-        <div className="flex items-center gap-4 mt-[7rem] sm:mt-8">
+        <div className="flex items-center gap-4 mt-[7rem] sm:mt-8 max-h-[800px]">
           <p
             ref={text1}
             className="dropcap dropcap-1 text-white font-extralight text-[50px] sm:text-[120px]"
@@ -19,7 +19,7 @@ const Phase1 = forwardRef(
         <div className="ml-16 sm:ml-[50%] h-[150px] sm:h-[325px] text-white font-bold text-[50px] sm:text-[120px] pl-12 relative">
           <div
             ref={yearLine}
-            className="absolute top-[25%] -translate-x-1/2 left-0 h-[0%] w-2 bg-purple"
+            className="absolute top-[25%] -translate-x-1/2 left-0 h-[0%] w-1 sm:w-2 bg-purple"
           ></div>
           <div
             ref={dot1}
