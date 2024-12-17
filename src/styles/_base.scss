@@ -163,3 +163,26 @@ body {
     }
   }
 }
+
+#sound-btn {
+  button {
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 3px;
+      width: 0%;
+      background-color: white;
+      transform-origin: center center;
+      transform: translate(-50%, -50%) rotate(45deg);
+      transition: all 0.4s ease;
+    }
+
+    &.muted {
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -11,8 +11,10 @@ function Sound() {
     audios.forEach((audio) => {
       if (muted) {
         audio.pause();
+        audio.muted = true;
       } else {
         audio.play();
+        audio.muted = false;
       }
     });
   }, [muted]);
@@ -21,11 +23,16 @@ function Sound() {
       id="sound-btn"
       className="fixed top-6 right-6 rounded-full overflow-hidden z-[9999] opacity-1"
     >
-      <button onClick={toggleMute} className="hover:cursor-pointer relative">
+      <button
+        onClick={toggleMute}
+        className={`hover:cursor-pointer relative bg-purple hover:bg-red transition-all p-3 ${
+          muted ? "bg-red muted" : "bg-purple"
+        }`}
+      >
         <img
           src="/svgs/sound.svg"
           alt="sound"
-          className="w-[50px] h-auto aspect-square"
+          className="w-[40px] h-auto aspect-square"
         />
       </button>
     </div>

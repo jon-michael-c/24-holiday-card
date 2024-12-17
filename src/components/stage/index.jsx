@@ -40,7 +40,7 @@ function Stage(props) {
 
   return (
     <>
-      <div className="stage fixed top-0 left-0 w-full h-full opacity-0 invisible z-[9999]">
+      <div className="stage fixed top-0 left-0 w-full h-full opacity-0 invisible z-[100000]">
         <Sound />
         <div className="screen h-[100vh]">
           <Phase1
