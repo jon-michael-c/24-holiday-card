@@ -6,7 +6,7 @@ import ITZ from "./lotties/ITZ.json";
 
 function Logo() {
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center relative max-w-[400px]">
+    <div className="flex flex-col md:flex-row justify-center items-center relative w-full max-w-[400px] sm:max-w-[1250px]">
       <Lottie style={{ width: "auto", height: "auto" }} animationData={LEI} />
       <Lottie style={{ width: "auto", height: "auto" }} animationData={BOW} />
       <Lottie style={{ width: "auto", height: "auto" }} animationData={ITZ} />
