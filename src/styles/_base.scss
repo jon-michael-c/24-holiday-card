@@ -139,5 +139,14 @@ body {
       font-size: 280px;
       margin-right: 15px;
     }
+
+    padding: 0rem 24px;
+    @media screen and (max-width: 768px) {
+      &::first-letter {
+        font-size: 150px;
+        line-height: 0.45;
+        margin-right: 5px;
+      }
+    }
   }
 }
