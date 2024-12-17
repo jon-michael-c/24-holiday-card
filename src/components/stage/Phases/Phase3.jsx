@@ -19,7 +19,10 @@ const Phase3 = forwardRef(
   ) => {
     const { background, foreground, gifts, window, tree } = lotties;
     return (
-      <div className="phase phase-3 h-full w-full relative" ref={phase3}>
+      <div
+        className="phase-3 w-[240%] left-[-130%] sm:w-full h-full absolute top-0 sm:left-0"
+        ref={phase3}
+      >
         <div
           ref={treeOverlay}
           className="absolute top-0 left-0 w-full h-full bg-purple z-[3] opacity-0"
@@ -41,7 +44,7 @@ const Phase3 = forwardRef(
         <div
           ref={treeBush}
           id="treeBush"
-          className="absolute top-0 left-0 w-full h-full translate-x-full z-[4]"
+          className="absolute bottom-[-25%] sm:bottom-[unset] sm:top-0 left-0 w-full h-full translate-x-full z-[4]"
         >
           <Lottie animationData={tree.data} />
         </div>
@@ -59,7 +62,7 @@ const Phase3 = forwardRef(
         </div>
         <div
           ref={treeGifts}
-          className="absolute top-0 left-0 w-full h-full translate-x-full z-[3]"
+          className="absolute bottom-[-25%] sm:bottom-[unset] sm:top-0 left-0 w-full h-full translate-x-full z-[3]"
         >
           <Lottie animationData={gifts.data} />
         </div>

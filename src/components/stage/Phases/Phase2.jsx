@@ -22,7 +22,10 @@ const Phase2 = forwardRef(
       console.log(lotties);
     }, []);
     return (
-      <div className="phase-2 h-full w-full relative opacity-0" ref={phase2}>
+      <div
+        className="phase-2 w-[250%] left-[-75%] sm:left-[unset] h-full sm:w-full relative opacity-0"
+        ref={phase2}
+      >
         <div
           ref={fireBack}
           className="absolute top-0 left-0 w-full h-full translate-x-full"
@@ -31,7 +34,7 @@ const Phase2 = forwardRef(
         </div>
         <div
           ref={firePlace}
-          className="absolute top-0 left-0 w-full h-full translate-x-full"
+          className="absolute top-0 left-0 w-full h-full translate-x-full origin-[50%_130px] sm:origin-[50%_160px] z-[10] shade"
         >
           <Lottie animationData={fire.data} />
         </div>
@@ -47,14 +50,14 @@ const Phase2 = forwardRef(
         >
           <Lottie animationData={foreground.data} />
         </div>
-        <div className="fixed top-0 left-0 text-center justify-center w-full flex flex-col items-center gap-2">
+        <div className="fixed top-0 left-0 text-center justify-center w-full flex flex-col items-center gap-2 z-[11] mt-8">
           <p
             ref={fireText1}
-            className="text-nowrap dropcap dropcap-2 text-[100px] text-midnight"
+            className="text-nowrap dropcap dropcap-2 text-[80px] text-midnight"
           ></p>
           <p
             ref={fireText2}
-            className="text-nowrap text-[100px] text-midnight"
+            className="-mt-8 text-nowrap text-[80px] text-midnight"
           ></p>
         </div>
       </div>

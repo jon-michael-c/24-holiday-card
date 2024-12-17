@@ -16,7 +16,7 @@ const Phase1 = forwardRef(
             A
           </p>
         </div>
-        <div className="ml-[50%] h-[150px] sm:h-[325px] text-white font-bold text-[50px] sm:text-[120px] pl-12 relative">
+        <div className="ml-16 sm:ml-[50%] h-[150px] sm:h-[325px] text-white font-bold text-[50px] sm:text-[120px] pl-12 relative">
           <div
             ref={yearLine}
             className="absolute top-[25%] -translate-x-1/2 left-0 h-[0%] w-2 bg-purple"
@@ -34,7 +34,7 @@ const Phase1 = forwardRef(
             <p ref={year2}></p>
           </div>
         </div>
-        <div className="ml-[75%] h-[250px]">
+        <div className="ml-8 sm:ml-[75%] h-[250px]">
           <p
             className="font-extralight text-nowrap text-white text-[50px] sm:text-[120px]"
             ref={text2}

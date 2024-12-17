@@ -89,15 +89,19 @@ const mainAmin = (refs, lottieRefs) => {
         document.querySelector(".scroll-anim").style.opacity = "0";
       },
     })
-    .to(year1, { duration: 1, text: { value: "2024" } })
-    .to(phase1, { x: "-25%" }, "<")
-    .to(dot1, { opacity: 1, scale: 50 }, "<")
+    .to(year1, { duration: 1, text: { value: "2024" } });
+  if (window.innerWidth >= 768) {
+    tl.to(phase1, { x: "-25%" }, "<");
+  }
+  tl.to(dot1, { opacity: 1, scale: 50 }, "<")
     .to(yearLine, { height: "59%" })
     .to(dot2, { opacity: 1, scale: 50 })
-    .to(year2, { text: { value: "2025" } })
-    .to(phase1, { x: "-25%" })
-    .to(text2, { text: { value: "comes to a close..." } })
-    .to(phase1, { x: "-150%" })
+    .to(year2, { text: { value: "2025" } });
+  if (window.innerWidth >= 768) {
+    tl.to(phase1, { x: "-25%" });
+  }
+  tl.to(text2, { text: { value: "comes to a close..." } })
+    .to(phase1, { x: "-170%" })
     /* Phase 2 */
     .to(
       phase2,
@@ -142,10 +146,17 @@ const mainAmin = (refs, lottieRefs) => {
       },
       "<"
     )
-    .to(treeBack, { x: "0%" }, "<")
-    .to(treeFore, { x: "0%" })
-    .to(treeWindow, { x: "0%" })
-    .to(treeBush, { x: "0%" })
+    .to(treeBack, { x: "0%" }, "<");
+  if (window.innerWidth >= 768) {
+    tl.to(treeFore, { x: "0%" }).to(treeWindow, { x: "0%" });
+  } else {
+    tl.to(treeFore, { opacity: "0%" }, "<").to(
+      treeWindow,
+      { opacity: "0%" },
+      "<"
+    );
+  }
+  tl.to(treeBush, { x: "0%" })
     .to(treeGifts, { x: "0%" }, "<")
     .to(treeOverlay, { opacity: "1" })
     .to(treeText, {
