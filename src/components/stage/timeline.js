@@ -43,9 +43,7 @@ const mainAmin = (refs, lottieRefs) => {
     endWindow,
     endReveal,
     endRevealMobile,
-    anim,
     finalText,
-    lotties,
   } = refs.current;
 
   const starting = gsap.timeline();
@@ -103,6 +101,7 @@ const mainAmin = (refs, lottieRefs) => {
     tl.to(phase1, { x: "-25%" });
   }
   tl.to(text2, { text: { value: "comes to a close..." } })
+    .to(text2, { duration: 2, text: { value: "comes to a close..." } })
     .to(phase1, { x: "-170%" })
     /* Phase 2 */
     .to(
@@ -122,15 +121,23 @@ const mainAmin = (refs, lottieRefs) => {
     .to(firePlace, { x: "0%" })
     .to(fireFloor, { x: "0%" })
     .to(fireFore, { x: "0%" })
+    .to(fireFore, { duration: 2, x: "0%" })
     .to([fireBack, firePlace, fireFloor, fireFore], { scale: 4.5 });
   if (!isMobile) {
     tl.to(fireText1, {
       text: { value: "Look back at what" },
-    }).to(fireText2, {
-      text: { value: "you've accomplished." },
-    });
+    })
+      .to(fireText2, {
+        text: { value: "you've accomplished." },
+      })
+      .to(fireText1, { duration: 2, text: { value: "Look back at what" } });
   } else {
     tl.to(fireText1, {
+      duration: 2,
+      text: { value: "Look back at what <br> you've accomplished." },
+    });
+    tl.to(fireText1, {
+      duration: 2,
       text: { value: "Look back at what <br> you've accomplished." },
     });
   }
@@ -165,6 +172,7 @@ const mainAmin = (refs, lottieRefs) => {
   }
   tl.to(treeBush, { x: "0%" })
     .to(treeGifts, { x: "0%" }, "<")
+    .to(treeGifts, { duration: 1, x: "0%" })
     .to(treeOverlay, { opacity: "1" })
     .to(treeText, {
       text: {
@@ -185,6 +193,7 @@ const mainAmin = (refs, lottieRefs) => {
         }
       },
     })
+    .to(treeOverlay, { duration: 2, opacity: "1" })
     .to(phase3, { x: "-120%" })
     /* Phase 4 */
     .to(
@@ -206,6 +215,7 @@ const mainAmin = (refs, lottieRefs) => {
           "nd there's a lot to celebrate if you look for it. After all, the magic’s in the details...",
       },
     })
+    .to(phase4, { duration: 2, opacity: "1" })
     .to(phase4, { x: "-120%" })
     /* Phase 5 */
     .to(
@@ -225,6 +235,7 @@ const mainAmin = (refs, lottieRefs) => {
     .to(endFore, { x: "0%" })
     .to(endWall, { x: "0%" })
     .to([endReveal, endWindow, endRevealMobile], { x: "0%" })
+    .to(endWall, { duration: 1, x: "0%" })
     .to([endWall, endWindow, endBack, endFore], {
       opacity: 0,
       onComplete: () => {

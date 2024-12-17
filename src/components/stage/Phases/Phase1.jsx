@@ -8,7 +8,7 @@ const Phase1 = forwardRef(
         className="phase phase-1 h-full w-full relative flex flex-col justify-between"
         ref={phase1}
       >
-        <div className="flex items-center gap-4 mt-[7rem] sm:mt-[5%]">
+        <div className="flex items-center gap-4 mt-[7rem] sm:mt-8">
           <p
             ref={text1}
             className="dropcap dropcap-1 text-white font-extralight text-[50px] sm:text-[120px]"
@@ -34,7 +34,7 @@ const Phase1 = forwardRef(
             <p ref={year2}></p>
           </div>
         </div>
-        <div className="ml-8 sm:ml-[75%] h-[250px]">
+        <div className="ml-8 sm:ml-[65%] h-[250px]">
           <p
             className="font-extralight text-nowrap text-white text-[50px] sm:text-[120px]"
             ref={text2}

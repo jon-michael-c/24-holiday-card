@@ -39,7 +39,7 @@ export default function Start(props) {
               />
               <h1 className="text-4xl text-white">Holiday Card 2024</h1>
             </div>
-            <div className="items relative scale-[4.2] top-[1181px] flex flex-col sm:flex-row justify-center gap-8 w-[80%] h-[50%] mx-auto">
+            <div className="items relative scale-[4.2] top-[1181px] flex flex-col sm:flex-row justify-center gap-8 w-[80%] h-[60%] mx-auto max-w-[840px] max-h-[420px]">
               <div className="square-items sm:aspect-[0.65]">
                 <Fireplace data={lotties[0].fireplace} />
               </div>
