@@ -8,7 +8,6 @@ const Fireplace = (props) => {
   const floorLot = useRef(null);
   const foreLot = useRef(null);
   useEffect(() => {
-    // Kill all lotties on unmount
     return () => {
       backLot.current.destroy();
       fireLot.current.destroy();

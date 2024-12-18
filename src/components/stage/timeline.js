@@ -124,7 +124,11 @@ const mainAmin = (refs, lottieRefs) => {
     .to(firePlace, { x: "-50%", y: "-0%" })
     .to(fireFloor, { x: "0%" })
     .to(fireFore, { x: "0%" })
-    .to(fireFore, { duration: 2, x: "0%" });
+    .to(fireFore, { duration: 2, x: "0%" })
+    .to(firePlace, {
+      scale: "4.5",
+    });
+
   if (!isMobile) {
     tl.to(fireText1, {
       text: { value: "Look back at what" },
@@ -146,7 +150,6 @@ const mainAmin = (refs, lottieRefs) => {
   tl.to(firePlace, { duration: 0.5, scale: "1" })
     .to([fireText1, fireText2], { opacity: 0 }, "<")
     .to(phase2, { x: "-120%" })
-
     /* Phase 3 */
     .to(
       phase3,

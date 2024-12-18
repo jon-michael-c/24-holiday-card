@@ -23,6 +23,7 @@ const Phase2 = forwardRef(
     const floorLot = useRef(null);
     const foreLot = useRef(null);
     useEffect(() => {
+      fireLot.current.pause();
       return () => {
         backLot.current.destroy();
         fireLot.current.destroy();
