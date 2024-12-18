@@ -12,6 +12,7 @@ gsap.registerPlugin(TextPlugin);
 function App() {
   const [loading, setLoading] = useState(0.0);
   const [lottieData, setLottieData] = useState([]);
+  const [start, setStart] = useState(false);
   const { contextSafe } = useGSAP();
   const loadingElm = useRef(null);
   const loadingText = useRef(null);
@@ -104,16 +105,14 @@ function App() {
         setLoading(progress);
       })
       .then((data) => {
-        if (data[0].fireplace && data[0].end && data[0].christmasTree) {
-          console.log(data);
-          setLottieData(data);
-          setLoading(100);
-          gsap.to(".app-bg", {
-            duration: 0.2,
-            height: `100%`,
-            ease: "none",
-          });
-        }
+        console.log(data);
+        setLottieData(data);
+        setLoading(100);
+        gsap.to(".app-bg", {
+          duration: 0.2,
+          height: `100%`,
+          ease: "none",
+        });
       });
   }, [loading]);
 
@@ -139,7 +138,7 @@ function App() {
             </h1>
           </div>
         </div>
-        {loading >= 100 && <Start lotties={lottieData} />}
+        {start && <Start lotties={lottieData} />}
       </div>
       <audio id="music" src="/audio/music.mp3" loop></audio>
       <audio id="panel1" src="/audio/panel-1.mp3" loop></audio>
