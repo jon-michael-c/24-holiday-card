@@ -178,7 +178,8 @@ const mainAmin = (refs, lottieRefs) => {
     .to(treeOverlay, { opacity: "1" })
     .to(treeText, {
       text: {
-        value: "What you've brought <br> the world is worth <br> celebrating.",
+        value:
+          "What you've brought <br class='hidden sm:block'> the world is worth <br class='hidden sm:block'> celebrating.",
       },
       onComplete: () => {
         let bushGroup = treeBush.querySelector("g");

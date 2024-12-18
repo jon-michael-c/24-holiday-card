@@ -36,7 +36,7 @@ const Phase1 = forwardRef(
         </div>
         <div className="ml-8 sm:ml-[65%] h-[250px]">
           <p
-            className="font-extralight text-nowrap text-white text-[50px] sm:text-[85px]"
+            className="font-extralight sm:text-nowrap text-white text-[50px] sm:text-[85px]"
             ref={text2}
           ></p>
         </div>

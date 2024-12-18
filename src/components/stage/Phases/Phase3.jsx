@@ -31,7 +31,7 @@ const Phase3 = forwardRef(
           <div className="opacity-1">
             <p
               ref={treeText}
-              className="dropcap dropcap-3 text-white font-extralight text-[30px] md:text-[40px] lg:text-[50px] xl:text-[65px] text-nowrap"
+              className="dropcap dropcap-3 text-white font-extralight text-[30px] md:text-[40px] lg:text-[50px] xl:text-[65px] sm:text-nowrap"
             ></p>
           </div>
         </div>
