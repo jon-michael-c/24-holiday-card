@@ -113,6 +113,7 @@ function App() {
           height: `100%`,
           ease: "none",
         });
+        setStart(true);
       });
   }, [loading]);
 
