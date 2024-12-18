@@ -59,7 +59,7 @@ const Phase2 = forwardRef(
         >
           <Lottie lottieRef={foreLot} animationData={foreground.data} />
         </div>
-        <div className="fixed top-0 left-0 text-center justify-center w-full flex flex-col items-center gap-2 z-[11] mt-16 sm:mt-8 ml-[-10px] sm:ml-0">
+        <div className="fixed top-0 left-0 text-center justify-center w-full flex flex-col items-center gap-2 z-[11] mt-16 sm:mt-8 ml-[-10px] sm:ml-0 max-w-[230px] ">
           <p
             ref={fireText1}
             className=" sm:text-nowrap dropcap dropcap-2 text-[30px] sm:text-[80px] text-midnight"

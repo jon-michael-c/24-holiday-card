@@ -42,8 +42,10 @@ const mainAmin = (refs, lottieRefs) => {
     endWall,
     endWindow,
     endReveal,
+    windowMobileRef,
     endRevealMobile,
     finalText,
+    endWindowMobileRef,
   } = refs.current;
 
   const starting = gsap.timeline();
@@ -99,8 +101,10 @@ const mainAmin = (refs, lottieRefs) => {
   if (!isMobile) {
     tl.to(phase1, { x: "-25%" });
   }
-  tl.to(text2, { text: { value: "comes to a close..." } })
-    .to(text2, { duration: 2, text: { value: "comes to a close..." } })
+  tl.to(text2, {
+    text: { value: "comes to a close..." },
+  })
+    .to(text2, { duration: 2, opacity: 1 })
     .to(phase1, { x: "-170%" })
     /* Phase 2 */
     .to(
@@ -135,11 +139,11 @@ const mainAmin = (refs, lottieRefs) => {
   } else {
     tl.to(fireText1, {
       duration: 2,
-      text: { value: "Look back at what <br> you've accomplished." },
+      text: { value: "Look back at what you've accomplished." },
     });
     tl.to(fireText1, {
       duration: 2,
-      text: { value: "Look back at what <br> you've accomplished." },
+      text: { value: "Look back at what you've accomplished." },
     });
   }
   tl.to([firePlace], { width: "100%" })
@@ -237,9 +241,9 @@ const mainAmin = (refs, lottieRefs) => {
     .to(endBack, { x: "0%" }, "<")
     .to(endFore, { x: "0%" })
     .to(endWall, { x: "0%" })
-    .to([endReveal, endWindow, endRevealMobile], { x: "0%" })
+    .to([endReveal, endWindow, endRevealMobile, windowMobileRef], { x: "0%" })
     .to(endWall, { duration: 1, x: "0%" })
-    .to([endWall, endWindow, endBack, endFore], {
+    .to([endWall, endWindow, endBack, endFore, windowMobileRef], {
       opacity: 0,
       onComplete: () => {
         if (!isMobile) {
@@ -251,8 +255,12 @@ const mainAmin = (refs, lottieRefs) => {
           tl.kill();
         } else {
           const revealAnimMobile = lottieRefs.revealMobile.current;
+          // Log all frames
+          console.log(revealAnimMobile.animationItem.totalFrames);
+          console.log(revealAnimMobile);
           const start = revealAnimMobile.animationItem.currentFrame;
-          const end = 100;
+          const end = 96;
+
           revealAnimMobile.animationItem.loop = false;
           revealAnimMobile.playSegments([start, end], true);
           tl.kill();

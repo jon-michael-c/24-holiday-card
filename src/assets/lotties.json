@@ -49,6 +49,9 @@
       },
       "revealMobile": {
         "path": "/lottie/end/reveal_mobile.json"
+      },
+      "windowMobile": {
+        "path": "/lottie/end/window_mobile.json"
       }
     },
     "scroll": {

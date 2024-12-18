@@ -7,6 +7,7 @@ import Phase4 from "./Phases/Phase4";
 import Phase5 from "./Phases/Phase5";
 import ProgressBar from "../progressBar";
 import Sound from "../sound";
+import phaseContext from "./phaseContext";
 
 function Stage(props) {
   const [progress, setProgress] = useState(0);
@@ -86,6 +87,8 @@ function Stage(props) {
             endWindow={(el) => (refs.current.endWindow = el)}
             endReveal={(el) => (refs.current.endReveal = el)}
             endRevealMobile={(el) => (refs.current.endRevealMobile = el)}
+            endWindowMobileRef={(el) => (refs.current.endWindowMobileRef = el)}
+            windowMobileRef={(el) => (refs.current.windowMobileRef = el)}
             finalText={(el) => (refs.current.finalText = el)}
             lottieRefs={lottieRefs}
             lotties={props.lotties[0].end}
