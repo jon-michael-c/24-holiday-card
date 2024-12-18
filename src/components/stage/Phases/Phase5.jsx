@@ -66,7 +66,7 @@ const Phase5 = forwardRef(
         </div>
         <div
           ref={endRevealMobile}
-          className="absolute top-0 left-[-32%] w-full h-full translate-x-full z-[3] sm:opacity-0"
+          className="absolute top-0 left-[-30%] w-full h-full translate-x-full z-[3] sm:opacity-0"
         >
           <Lottie
             lottieRef={lottieRefs?.revealMobile}
