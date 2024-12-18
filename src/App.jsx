@@ -51,32 +51,32 @@ function App() {
     });
 
     t1.to(".square-frame", {
-      duration: 3,
-      width: "150%",
+      duration: 1,
+      width: "190%",
       ease: ease,
       delay: 0.5,
     });
-    t1.to(
-      ".items",
-      {
-        duration: 1,
-        top: "0px",
-        scale: 1,
-        ease: ease,
-      },
-      ">-=0.5"
-    );
+    t1.to(".items", {
+      duration: 1,
+      top: "0px",
+      scale: 1,
+      ease: ease,
+    });
 
     t1.to(".content-inner", {
       duration: 1,
       scale: 1,
       ease: ease,
     });
-    t1.to(["#start-button", ".title"], {
-      duration: 0.65,
-      opacity: 1,
-      ease: ease,
-    });
+    t1.to(
+      ["#start-button", ".title"],
+      {
+        duration: 0.65,
+        opacity: 1,
+        ease: ease,
+      },
+      "<"
+    );
   });
 
   useGSAP(() => {
@@ -98,7 +98,7 @@ function App() {
         }
         gsap.to(".app-bg", {
           duration: 0.1,
-          height: `${progress}%`,
+          height: `${100 - progress}%`,
           ease: "none",
         });
 
@@ -108,9 +108,9 @@ function App() {
         console.log(data);
         setLottieData(data);
         setLoading(100);
-        gsap.to(".app-bg", {
+        gsap.to(".load-bg", {
           duration: 0.2,
-          height: `100%`,
+          height: `0%`,
           ease: "none",
         });
         // Start
@@ -122,11 +122,10 @@ function App() {
     <>
       <div className="overflow-hidden w-full h-full relative">
         <Glow />
-        <div className="app-bg"></div>
         <div className="load-bg"></div>
         <div
           ref={loadingElm}
-          className="loading flex justify-center items-center w-full h-full text-center"
+          className="loading flex justify-center items-center w-full h-full text-center relative z-[9]"
         >
           <div>
             <div className="mx-auto max-w-[1200px] w-[80%] h-full mb-16 relative">

@@ -77,7 +77,6 @@ const mainAmin = (refs, lottieRefs) => {
   let tl2 = gsap.timeline({ paused: true }).to(finalText, {
     text: { value: "Happy Holidays <br> from" },
     duration: 1,
-    ease: "expo",
   });
 
   tl
@@ -118,12 +117,12 @@ const mainAmin = (refs, lottieRefs) => {
       "<"
     )
     .to(fireBack, { x: "0%" }, "<")
-    .to(firePlace, { x: "0%" })
+    .to(firePlace, { x: "-50%", y: "-0%" })
     .to(fireFloor, { x: "0%" })
     .to(fireFore, { x: "0%" })
     .to(fireFore, { duration: 2, x: "0%" })
     .to([firePlace], {
-      scale: "5",
+      duration: 1,
     });
   if (!isMobile) {
     tl.to(fireText1, {
@@ -143,9 +142,10 @@ const mainAmin = (refs, lottieRefs) => {
       text: { value: "Look back at what <br> you've accomplished." },
     });
   }
-  tl.to([fireBack, firePlace, fireFloor, fireFore], { scale: 1 })
+  tl.to([firePlace], { width: "100%" })
     .to([fireText1, fireText2], { opacity: 0 }, "<")
     .to(phase2, { x: "-120%" })
+
     /* Phase 3 */
     .to(
       phase3,
@@ -242,17 +242,19 @@ const mainAmin = (refs, lottieRefs) => {
       opacity: 0,
       onComplete: () => {
         if (!isMobile) {
-          const start = 25;
-          const end = 100;
           const revealAnim = lottieRefs.revealAnim.current;
+          const start = revealAnim.animationItem.currentFrame;
+          const end = 100;
           revealAnim.animationItem.loop = false;
           revealAnim.playSegments([start, end], true);
-          tl2.play();
+          tl.kill();
         } else {
           const revealAnimMobile = lottieRefs.revealMobile.current;
+          const start = revealAnimMobile.animationItem.currentFrame;
+          const end = 100;
           revealAnimMobile.animationItem.loop = false;
-          revealAnimMobile.playSegments([25, 100], true);
-          tl2.play();
+          revealAnimMobile.playSegments([start, end], true);
+          tl.kill();
         }
       },
     });

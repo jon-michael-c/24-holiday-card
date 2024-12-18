@@ -1,5 +1,5 @@
 // Phase2.js
-import React, { forwardRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import { useEffect } from "react";
 import Lottie from "lottie-react";
 
@@ -18,7 +18,18 @@ const Phase2 = forwardRef(
     ref
   ) => {
     const { background, fire, floor, foreground } = lotties;
-    useEffect(() => {}, []);
+    const backLot = useRef(null);
+    const fireLot = useRef(null);
+    const floorLot = useRef(null);
+    const foreLot = useRef(null);
+    useEffect(() => {
+      return () => {
+        backLot.current.destroy();
+        fireLot.current.destroy();
+        floorLot.current.destroy();
+        foreLot.current.destroy();
+      };
+    }, []);
     return (
       <div
         className="phase-2 w-[250%] left-[-75%] sm:left-[unset] h-full sm:w-full relative opacity-0"
@@ -28,25 +39,25 @@ const Phase2 = forwardRef(
           ref={fireBack}
           className="absolute top-0 left-0 w-full h-full translate-x-full"
         >
-          <Lottie animationData={background.data} />
+          <Lottie lottieRef={backLot} animationData={background.data} />
         </div>
         <div
           ref={firePlace}
-          className="absolute top-0 left-0 w-full h-full translate-x-full origin-[50%_130px] sm:origin-[50%_250px] z-[10] shade"
+          className="absolute top-1/2 left-1/2 w-full h-full translate-x-full -translate-y-1/2  z-[10] shade"
         >
-          <Lottie animationData={fire.data} />
+          <Lottie lottieRef={fireLot} animationData={fire.data} />
         </div>
         <div
           ref={fireFloor}
           className="absolute top-0 left-0 w-full h-full translate-x-full shaded"
         >
-          <Lottie animationData={floor.data} />
+          <Lottie lottieRef={floorLot} animationData={floor.data} />
         </div>
         <div
           ref={fireFore}
           className="absolute top-0 left-0 w-full h-full translate-x-full shaded"
         >
-          <Lottie animationData={foreground.data} />
+          <Lottie lottieRef={foreLot} animationData={foreground.data} />
         </div>
         <div className="fixed top-0 left-0 text-center justify-center w-full flex flex-col items-center gap-2 z-[11] mt-16 sm:mt-8 ml-[-10px] sm:ml-0">
           <p

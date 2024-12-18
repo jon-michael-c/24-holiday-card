@@ -32,12 +32,12 @@ const Phase5 = forwardRef(
         >
           <Lottie animationData={background.data} />
         </div>
-        <di
+        <div
           ref={endWall}
           className="absolute top-0 left-0 w-full h-full translate-x-full z-[10] shade"
         >
           <Lottie animationData={wall.data} />
-        </di>
+        </div>
         <div
           ref={endFore}
           className="absolute top-0 left-0 w-full h-full translate-x-full z-[4] shade"
@@ -46,7 +46,7 @@ const Phase5 = forwardRef(
         </div>
         <div
           ref={endWindow}
-          className="absolute top-0 left-0 w-full h-full translate-x-full z-[2] shade"
+          className="absolute top-0 left-0 w-full h-full translate-x-full z-[2] transition-all shade"
         >
           <Lottie animationData={window.data} />
         </div>
@@ -57,7 +57,7 @@ const Phase5 = forwardRef(
         >
           <p
             ref={finalText}
-            className="text-white font-extralight text-[80px] text-center h-0"
+            className="relative top-1/2 -translate-y-1/2 text-white font-extralight text-[80px] text-center  h-0"
           ></p>
           <Lottie
             lottieRef={lottieRefs?.revealAnim}
