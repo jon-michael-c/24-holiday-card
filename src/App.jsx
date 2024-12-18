@@ -104,18 +104,16 @@ function App() {
         setLoading(progress);
       })
       .then((data) => {
-        if (data.length === 0) {
-          console.error("No lottie data found");
-          return;
+        if (data[0].fireplace && data[0].end && data[0].christmasTree) {
+          console.log(data);
+          setLottieData(data);
+          setLoading(100);
+          gsap.to(".app-bg", {
+            duration: 0.2,
+            height: `100%`,
+            ease: "none",
+          });
         }
-        console.log(data);
-        setLottieData(data);
-        setLoading(100);
-        gsap.to(".app-bg", {
-          duration: 0.2,
-          height: `100%`,
-          ease: "none",
-        });
       });
   }, [loading]);
 
