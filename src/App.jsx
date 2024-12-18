@@ -104,6 +104,10 @@ function App() {
         setLoading(progress);
       })
       .then((data) => {
+        if (data.length === 0) {
+          console.error("No lottie data found");
+          return;
+        }
         setLottieData(data);
         setLoading(100);
         gsap.to(".app-bg", {
@@ -112,7 +116,7 @@ function App() {
           ease: "none",
         });
       });
-  }, [loading, lottieData]);
+  }, [loading]);
 
   return (
     <>
