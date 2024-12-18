@@ -112,7 +112,7 @@ function App() {
           ease: "none",
         });
       });
-  }, [loading]);
+  }, [loading, lottieData]);
 
   return (
     <>
