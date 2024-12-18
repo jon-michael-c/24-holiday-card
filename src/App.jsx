@@ -108,6 +108,7 @@ function App() {
           console.error("No lottie data found");
           return;
         }
+        console.log(data);
         setLottieData(data);
         setLoading(100);
         gsap.to(".app-bg", {
