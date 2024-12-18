@@ -1,5 +1,5 @@
 // Phase1.js
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useRef } from "react";
 import Lottie from "lottie-react";
 
 const Phase3 = forwardRef(
@@ -18,6 +18,16 @@ const Phase3 = forwardRef(
     ref
   ) => {
     const { background, foreground, gifts, window, tree } = lotties;
+    const backRef = useRef(null);
+    const bushRef = useRef(null);
+
+    useEffect(() => {
+      return () => {
+        backRef.current.destroy();
+        bushRef.current.destroy();
+      };
+    }, []);
+
     return (
       <div
         className="phase-3 w-[240%] left-[-130%] sm:w-full h-full absolute top-0 sm:left-0"
@@ -39,14 +49,14 @@ const Phase3 = forwardRef(
           ref={treeBack}
           className="absolute top-0 left-0 w-full h-full translate-x-full"
         >
-          <Lottie animationData={background.data} />
+          <Lottie lottieRef={backRef} animationData={background.data} />
         </div>
         <div
           ref={treeBush}
           id="treeBush"
           className="absolute bottom-[-25%] sm:bottom-[unset] sm:top-0 left-0 w-full h-full translate-x-full z-[4]"
         >
-          <Lottie animationData={tree.data} />
+          <Lottie lottieRef={bushRef} animationData={tree.data} />
         </div>
         <div
           ref={treeWindow}
