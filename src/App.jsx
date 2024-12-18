@@ -56,7 +56,6 @@ function App() {
       scale: 1,
       ease: ease,
     });
-
     t1.to(".content-inner", {
       duration: 1,
       scale: 1,
