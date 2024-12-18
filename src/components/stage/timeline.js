@@ -127,6 +127,7 @@ const mainAmin = (refs, lottieRefs) => {
     .to(fireFore, { duration: 2, x: "0%" })
     .to([firePlace], {
       duration: 1,
+      scale: 5,
     });
   if (!isMobile) {
     tl.to(fireText1, {
@@ -146,7 +147,8 @@ const mainAmin = (refs, lottieRefs) => {
       text: { value: "Look back at what you've accomplished." },
     });
   }
-  tl.to([firePlace], { width: "100%" })
+  tl.to([firePlace], { scale: "1" })
+    .to(firePlace, { duration: 0.5, scale: "1" })
     .to([fireText1, fireText2], { opacity: 0 }, "<")
     .to(phase2, { x: "-120%" })
 
@@ -219,7 +221,7 @@ const mainAmin = (refs, lottieRefs) => {
     .to(ph4Text, {
       text: {
         value:
-          "nd there's a lot to celebrate if you look for it. After all, the magic’s in the details...",
+          "And there's a lot to celebrate if you look for it. After all, the magic’s in the details...",
       },
     })
     .to(phase4, { duration: 2, opacity: "1" })
@@ -260,7 +262,6 @@ const mainAmin = (refs, lottieRefs) => {
           console.log(revealAnimMobile);
           const start = revealAnimMobile.animationItem.currentFrame;
           const end = 96;
-
           revealAnimMobile.animationItem.loop = false;
           revealAnimMobile.playSegments([start, end], true);
           tl.kill();

@@ -45,12 +45,6 @@ function App() {
     });
 
     t1.to(".square-frame", {
-      duration: 0.65,
-      width: "25%",
-      ease: ease,
-    });
-
-    t1.to(".square-frame", {
       duration: 1,
       width: "190%",
       ease: ease,

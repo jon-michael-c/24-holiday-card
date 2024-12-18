@@ -27,11 +27,11 @@ const Phase3 = forwardRef(
           ref={treeOverlay}
           className="absolute top-0 left-0 w-full h-full bg-purple z-[3] opacity-0"
         ></div>
-        <div className="absolute top-0 left-1/2 sm:left-0 sm:w-[70%] leading-[1.13] h-full z-[5] p-[6%]">
+        <div className="absolute top-0 left-1/2 sm:left-0 sm:w-[70%] leading-[1.13] h-full z-[5] p-12 sm:p-[6%]">
           <div className="opacity-1">
             <p
               ref={treeText}
-              className="dropcap dropcap-3 text-white font-extralight text-[30px] md:text-[40px] lg:text-[50px] xl:text-[65px] sm:text-nowrap"
+              className="dropcap dropcap-3 text-white font-extralight text-[24px] sm:text-[30px] md:text-[40px] lg:text-[50px] xl:text-[65px] sm:text-nowrap"
             ></p>
           </div>
         </div>

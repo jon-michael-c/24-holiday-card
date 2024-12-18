@@ -104,6 +104,7 @@ body {
   }
 
   &.dropcap-2 {
+    line-height: 1.25;
     &::first-letter {
       background-image: url("/svgs/cap-l.svg");
       color: transparent;
@@ -113,8 +114,9 @@ body {
 
       @media screen and (max-width: 768px) {
         font-size: 150px;
-        line-height: 0.54;
+        line-height: 0.5;
         margin-left: -0.5rem;
+        margin-right: -0.5rem;
       }
     }
   }
@@ -160,7 +162,7 @@ body {
     &::first-letter {
       background-image: url("/svgs/cap-3.svg");
       color: transparent;
-      line-height: 0.6;
+      line-height: 0.58;
       font-size: 280px;
       margin-right: 15px;
     }
