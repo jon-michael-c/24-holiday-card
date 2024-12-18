@@ -7,11 +7,9 @@ const End = (props) => {
 
   useEffect(() => {
     const markers = reveal.data.markers;
-    console.log(markers);
     const startMarker = 0;
     const endMarker = 24;
 
-    console.log(startMarker, endMarker);
     revealAnim.current.playSegments([startMarker, endMarker], true);
   }, []);
   return (

@@ -63,7 +63,7 @@ function App() {
         scale: 1,
         ease: ease,
       },
-      ">-=0.85"
+      ">-=0.5"
     );
 
     t1.to(".content-inner", {
