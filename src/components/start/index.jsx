@@ -39,9 +39,9 @@ export default function Start(props) {
               <img
                 src="/svgs/logo.svg"
                 alt="logo"
-                className="w-[90%] h-auto mx-auto max-w-[550px] mb-4"
+                className="w-full h-auto mx-auto max-w-[560px] mb-4"
               />
-              <h1 className="text-4xl text-white">Holiday Card 2024</h1>
+              <h1 className="text-3xl text-white">Holiday Card 2024</h1>
             </div>
             <div className="items relative scale-1  flex flex-col sm:flex-row justify-center gap-8 w-[80%] h-[60%] mx-auto max-w-[840px] max-h-[420px]">
               <div className="square-items sm:aspect-[0.65]">

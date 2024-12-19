@@ -118,11 +118,6 @@ const mainAmin = (refs, lottieRefsArr) => {
     defaults: { ease: "none" },
   });
 
-  let tl2 = gsap.timeline({ paused: true }).to(finalText, {
-    text: { value: "Happy Holidays <br> from" },
-    duration: 1,
-  });
-
   tl
     /* Phase 1 */
     .to(text1, {

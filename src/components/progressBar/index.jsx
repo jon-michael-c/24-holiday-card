@@ -6,7 +6,7 @@ const ProgressBar = (props) => {
 
   return (
     <>
-      <div className="scroll-anim fixed top-0 right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-0 w-[100px] sm:w-[200px] h-full flex justify-center transition-opacity z-[9999999]">
+      <div className="scroll-anim fixed top-0 right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-0 w-[100px] sm:w-[200px] h-full flex justify-center transition-opacity z-[99999]">
         <Lottie
           className="mb-auto sm:mt-auto"
           animationData={lotties.scroll.data}
