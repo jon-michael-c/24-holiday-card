@@ -64,10 +64,10 @@ const Phase2 = forwardRef(
             animationData={foreground.data}
           />
         </div>
-        <div className="fixed top-0 left-0 text-center justify-center w-full flex flex-col items-center gap-2 z-[11] mt-16 sm:mt-8 ml-[-10px] sm:ml-0  ">
+        <div className="fixed top-0 left-0 text-left justify-center w-full flex flex-col items-center gap-2 z-[11] mt-16 sm:mt-8 ml-[-10px] sm:ml-0  ">
           <p
             ref={fireText1}
-            className=" sm:text-nowrap dropcap dropcap-2 text-[30px] sm:text-[80px] text-midnight w-[250px] sm:w-fit"
+            className=" sm:text-nowrap dropcap dropcap-2 text-[23px] sm:text-[80px] text-midnight w-[250px] sm:w-fit"
           ></p>
           <p
             ref={fireText2}

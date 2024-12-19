@@ -312,6 +312,12 @@ const mainAmin = (refs, lottieRefsArr) => {
           revealAnim.animationItem.loop = false;
           revealAnim.playSegments([start, end], true);
           tl.kill();
+
+          setTimeout(() => {
+            // End reveal pointer events enabled
+            endReveal.style.pointerEvents = "all";
+            endReveal.style.zIndex = "9999";
+          }, 2500);
         } else {
           const revealAnimMobile = lottieRefs.revealMobile.current;
           // Log all frames
@@ -322,6 +328,10 @@ const mainAmin = (refs, lottieRefsArr) => {
           revealAnimMobile.animationItem.loop = false;
           revealAnimMobile.playSegments([start, end], true);
           tl.kill();
+          setTimeout(() => {
+            endRevealMobile.style.pointerEvents = "all";
+            endRevealMobile.style.zIndex = "9999";
+          }, 2500);
         }
       },
     });

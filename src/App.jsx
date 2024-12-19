@@ -45,26 +45,14 @@ function App() {
     });
 
     t1.to(".square-frame", {
-      duration: 1,
+      duration: 1.5,
       width: "190%",
-      ease: ease,
-      delay: 0.5,
-    });
-    t1.to(".items", {
-      duration: 1,
-      top: "0px",
-      scale: 1,
-      ease: ease,
-    });
-    t1.to(".content-inner", {
-      duration: 1,
-      scale: 1,
       ease: ease,
     });
     t1.to(
       ["#start-button", ".title"],
       {
-        duration: 0.65,
+        duration: 0.85,
         opacity: 1,
         ease: ease,
       },

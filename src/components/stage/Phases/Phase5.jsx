@@ -76,9 +76,10 @@ const Phase5 = forwardRef(
           />
         </div>
 
-        <div
+        <a
+          href="https://leibowitzdesign.com"
           ref={endReveal}
-          className="absolute top-0 left-0 w-full h-full translate-x-full z-[2] hidden sm:block"
+          className="absolute top-0 left-0 w-full h-full translate-x-full z-[2] pointer-events-none hidden sm:block"
         >
           <p
             ref={finalText}
@@ -89,7 +90,7 @@ const Phase5 = forwardRef(
             lottieRef={lottieRefs?.revealAnim}
             animationData={reveal.data}
           />
-        </div>
+        </a>
         <div
           ref={windowMobileRef}
           className="absolute top-0 left-[-30%] w-full h-full translate-x-full z-[2] sm:hidden"
@@ -100,16 +101,17 @@ const Phase5 = forwardRef(
             animationData={windowMobile.data}
           />
         </div>
-        <div
+        <a
+          href="https://leibowitzdesign.com"
           ref={endRevealMobile}
-          className="absolute top-0 left-[-30%] w-full h-full translate-x-full z-[5] sm:opacity-0"
+          className="absolute top-0 left-[-30%] w-full h-full translate-x-full z-[2] pointer-events-none sm:opacity-0"
         >
           <Lottie
             autoplay={false}
             lottieRef={lottieRefs?.revealMobile}
             animationData={revealMobile.data}
           />
-        </div>
+        </a>
       </div>
     );
   }

@@ -44,6 +44,9 @@ body {
   height: auto;
   aspect-ratio: 1;
   overflow: hidden;
+  @media screen and (max-width: 768px) {
+    height: 100%;
+  }
 
   .content {
     position: absolute;
@@ -105,6 +108,7 @@ body {
 
   &.dropcap-2 {
     line-height: 1.25;
+
     &::first-letter {
       background-image: url("/svgs/cap-l.svg");
       color: transparent;
@@ -113,10 +117,10 @@ body {
       margin-right: 0.5rem;
 
       @media screen and (max-width: 768px) {
-        font-size: 150px;
-        line-height: 0.5;
-        margin-left: -0.5rem;
-        margin-right: -0.5rem;
+        font-size: 188px;
+        line-height: 0.45;
+        margin-left: 0.5rem;
+        margin-right: 0.18rem;
       }
     }
   }
