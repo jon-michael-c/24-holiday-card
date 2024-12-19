@@ -2,12 +2,24 @@ import React, { useState, useEffect, useRef } from "react";
 import Lottie from "lottie-react";
 
 const Fireplace = (props) => {
+  const [play, setPlay] = useState(props.play);
   const { background, foreground, fire, floor } = props.data;
   const backLot = useRef(null);
   const fireLot = useRef(null);
   const floorLot = useRef(null);
   const foreLot = useRef(null);
   useEffect(() => {
+    if (play) {
+      backLot.current.play();
+      fireLot.current.play();
+      floorLot.current.play();
+      foreLot.current.play();
+    } else {
+      backLot.current.pause();
+      fireLot.current.pause();
+      floorLot.current.pause();
+      foreLot.current.pause();
+    }
     return () => {
       backLot.current.destroy();
       fireLot.current.destroy();

@@ -13,20 +13,13 @@ const Phase3 = forwardRef(
       treeGifts,
       treeOverlay,
       treeText,
+      treelottieRefs,
       lotties,
     },
     ref
   ) => {
     const { background, foreground, gifts, window, tree } = lotties;
-    const backRef = useRef(null);
-    const bushRef = useRef(null);
-
-    useEffect(() => {
-      return () => {
-        backRef.current.destroy();
-        bushRef.current.destroy();
-      };
-    }, []);
+    useEffect(() => {}, []);
 
     return (
       <div
@@ -49,32 +42,52 @@ const Phase3 = forwardRef(
           ref={treeBack}
           className="absolute top-0 left-0 w-full h-full translate-x-full"
         >
-          <Lottie lottieRef={backRef} animationData={background.data} />
+          <Lottie
+            autoplay={false}
+            lottieRef={treelottieRefs.back}
+            animationData={background.data}
+          />
         </div>
         <div
           ref={treeBush}
           id="treeBush"
           className="absolute bottom-[-25%] sm:bottom-[unset] sm:top-0 left-0 w-full h-full translate-x-full z-[4]"
         >
-          <Lottie lottieRef={bushRef} animationData={tree.data} />
+          <Lottie
+            autoplay={false}
+            lottieRef={treelottieRefs.bush}
+            animationData={tree.data}
+          />
         </div>
         <div
           ref={treeWindow}
           className="absolute top-0 left-0 w-full h-full translate-x-full"
         >
-          <Lottie animationData={window.data} />
+          <Lottie
+            autoplay={false}
+            lottieRef={treelottieRefs.window}
+            animationData={window.data}
+          />
         </div>
         <div
           ref={treeFore}
           className="absolute top-0 left-0 w-full h-full translate-x-full shade"
         >
-          <Lottie animationData={foreground.data} />
+          <Lottie
+            autoplay={false}
+            lottieRef={treelottieRefs.fore}
+            animationData={foreground.data}
+          />
         </div>
         <div
           ref={treeGifts}
           className="absolute bottom-[-25%] sm:bottom-[unset] sm:top-0 left-0 w-full h-full translate-x-full z-[3]"
         >
-          <Lottie animationData={gifts.data} />
+          <Lottie
+            autoplay={false}
+            lottieRef={treelottieRefs.gifts}
+            animationData={gifts.data}
+          />
         </div>
       </div>
     );

@@ -11,6 +11,7 @@ export default function Start(props) {
   const square = useRef(null);
   const { contextSafe } = useGSAP();
   const [start, setStart] = useState(false);
+  const [play, setPlay] = useState(true);
   const startAnim = contextSafe(() => {
     const tl = gsap.timeline();
     tl.to(square.current, {
@@ -19,6 +20,7 @@ export default function Start(props) {
       ease: "expo",
       onComplete: () => {
         setStart(true);
+        setPlay(false);
         document.querySelector("#music").play();
         let squareFrame = document.querySelector(".square-frame > .content");
         squareFrame.style.display = "none";
@@ -41,19 +43,19 @@ export default function Start(props) {
               />
               <h1 className="text-4xl text-white">Holiday Card 2024</h1>
             </div>
-            <div className="items relative scale-1 [@media(min-height:800px)]:top-[25%] flex flex-col sm:flex-row justify-center gap-8 w-[80%] h-[60%] mx-auto max-w-[840px] max-h-[420px]">
+            <div className="items relative scale-1  flex flex-col sm:flex-row justify-center gap-8 w-[80%] h-[60%] mx-auto max-w-[840px] max-h-[420px]">
               <div className="square-items sm:aspect-[0.65]">
                 {lotties[0].fireplace && (
-                  <Fireplace data={lotties[0].fireplace} />
+                  <Fireplace play={play} data={lotties[0].fireplace} />
                 )}
               </div>
               <div className="square-items  sm:aspect-[0.65]">
                 {lotties[0].christmasTree && (
-                  <Tree data={lotties[0].christmasTree} />
+                  <Tree play={play} data={lotties[0].christmasTree} />
                 )}
               </div>
               <div className="square-items  sm:aspect-[0.65]">
-                {lotties[0].end && <End data={lotties[0].end} />}
+                {lotties[0].end && <End play={play} data={lotties[0].end} />}
               </div>
             </div>
             <div className="flex justify-center items-center w-full">

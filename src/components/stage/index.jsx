@@ -26,17 +26,45 @@ function Stage(props) {
   const lottieRefs = {
     revealAnim: useRef(null),
     revealMobile: useRef(null),
+    back: useRef(null),
+    fore: useRef(null),
+    window: useRef(null),
+    wall: useRef(null),
+    windowMobile: useRef(null),
+  };
+  const firelottieRefs = {
+    back: useRef(null),
+    fire: useRef(null),
+    floor: useRef(null),
+    fore: useRef(null),
+  };
+  const treelottieRefs = {
+    back: useRef(null),
+    bush: useRef(null),
+    window: useRef(null),
+    fore: useRef(null),
+    gifts: useRef(null),
   };
 
-  const revealAnim = useRef(null);
-  const revealMobile = useRef(null);
-  useStageAnimation(refs, lottieRefs);
+  useStageAnimation(refs, [firelottieRefs, treelottieRefs, lottieRefs]);
 
   useEffect(() => {
-    const start = 0;
-    const end = 24;
-    lottieRefs.revealAnim.current.playSegments([start, end], true);
-    lottieRefs.revealMobile.current.playSegments([start, end], true);
+    return () => {
+      // Every ref in fireLottieRefs in an array
+      Object.values(firelottieRefs).forEach((ref) => {
+        ref.current?.destroy();
+      });
+
+      // Every ref in treeLottieRefs in an array
+      Object.values(treelottieRefs).forEach((ref) => {
+        ref.current?.destroy();
+      });
+
+      // Every ref in lottieRefs in an array
+      Object.values(lottieRefs).forEach((ref) => {
+        ref.current?.destroy();
+      });
+    };
   }, []);
 
   return (
@@ -62,6 +90,7 @@ function Stage(props) {
             fireFore={(el) => (refs.current.fireFore = el)}
             fireText1={(el) => (refs.current.fireText1 = el)}
             fireText2={(el) => (refs.current.fireText2 = el)}
+            firelottieRefs={firelottieRefs}
             lotties={props.lotties[0].fireplace}
           />
           <Phase3
@@ -73,6 +102,7 @@ function Stage(props) {
             treeGifts={(el) => (refs.current.treeGifts = el)}
             treeOverlay={(el) => (refs.current.treeOverlay = el)}
             treeText={(el) => (refs.current.treeText = el)}
+            treelottieRefs={treelottieRefs}
             lotties={props.lotties[0].christmasTree}
           />
           <Phase4

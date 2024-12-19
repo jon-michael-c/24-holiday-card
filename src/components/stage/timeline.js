@@ -1,6 +1,6 @@
 import gsap from "./gsapSetup";
 
-const mainAmin = (refs, lottieRefs) => {
+const mainAmin = (refs, lottieRefsArr) => {
   document.querySelector(".loading").classList.add("hidden");
   document.querySelector("#root").classList.add("ready");
 
@@ -8,6 +8,9 @@ const mainAmin = (refs, lottieRefs) => {
   const panel1 = document.querySelector("#panel1");
   const panel2 = document.querySelector("#panel2");
   const panel3 = document.querySelector("#panel3");
+  console.log(panel1);
+
+  const [firelottieRefs, treelottieRefs, lottieRefs] = lottieRefsArr;
 
   const { line, text1, text2, phase1, year1, year2, yearLine, dot1, dot2 } =
     refs.current;
@@ -49,6 +52,45 @@ const mainAmin = (refs, lottieRefs) => {
   } = refs.current;
 
   const starting = gsap.timeline();
+
+  window.test = firelottieRefs.fire.current;
+  const toggleFire = (state) => {
+    if (state) {
+      Object.values(firelottieRefs).forEach((ref) => {
+        ref.current?.play();
+      });
+    } else {
+      Object.values(firelottieRefs).forEach((ref) => {
+        ref.current?.pause();
+      });
+    }
+  };
+
+  const toggleTree = (state) => {
+    if (state) {
+      Object.values(treelottieRefs).forEach((ref) => {
+        ref.current?.play();
+      });
+    } else {
+      Object.values(treelottieRefs).forEach((ref) => {
+        ref.current?.pause();
+      });
+    }
+  };
+
+  const toggleEnd = (state) => {
+    if (state) {
+      Object.values(lottieRefs).forEach((ref) => {
+        ref.current?.play();
+      });
+      lottieRefs.revealAnim.current?.playSegments([0, 24], true);
+      lottieRefs.revealMobile.current?.playSegments([0, 24], true);
+    } else {
+      Object.values(lottieRefs).forEach((ref) => {
+        ref.current?.pause();
+      });
+    }
+  };
 
   starting.to(".stage", {
     duration: 1,
@@ -105,7 +147,7 @@ const mainAmin = (refs, lottieRefs) => {
     text: { value: "comes to a close..." },
   })
     .to(text2, { duration: 2, opacity: 1 })
-    .to(phase1, { x: "-170%" })
+    .to(phase1, { x: "-170%", onComplete: () => toggleFire(true) })
     /* Phase 2 */
     .to(
       phase2,
@@ -124,9 +166,10 @@ const mainAmin = (refs, lottieRefs) => {
     .to(firePlace, { x: "-50%", y: "-0%" })
     .to(fireFloor, { x: "0%" })
     .to(fireFore, { x: "0%" })
-    .to(fireFore, { duration: 2, x: "0%" })
+    .to(fireFore, { duration: 2, x: "0%", onComplete: () => toggleFire(false) })
     .to(firePlace, {
       scale: "4.5",
+      onComplete: () => toggleFire(true),
     });
 
   if (!isMobile) {
@@ -136,7 +179,11 @@ const mainAmin = (refs, lottieRefs) => {
       .to(fireText2, {
         text: { value: "you've accomplished." },
       })
-      .to(fireText1, { duration: 2, text: { value: "Look back at what" } });
+      .to(fireText1, {
+        duration: 2,
+        text: { value: "Look back at what" },
+        onComplete: () => toggleFire(false),
+      });
   } else {
     tl.to(fireText1, {
       duration: 2,
@@ -145,11 +192,22 @@ const mainAmin = (refs, lottieRefs) => {
     tl.to(fireText1, {
       duration: 2,
       text: { value: "Look back at what you've accomplished." },
+      onComplete: () => toggleFire(false),
     });
   }
-  tl.to(firePlace, { duration: 0.5, scale: "1" })
+  tl.to(firePlace, {
+    duration: 0.5,
+    scale: "1",
+    onComplete: () => toggleFire(true),
+  })
     .to([fireText1, fireText2], { opacity: 0 }, "<")
-    .to(phase2, { x: "-120%" })
+    .to(phase2, {
+      x: "-120%",
+      onComplete: () => {
+        toggleFire(false);
+        toggleTree(true);
+      },
+    })
     /* Phase 3 */
     .to(
       phase3,
@@ -201,7 +259,13 @@ const mainAmin = (refs, lottieRefs) => {
       },
     })
     .to(treeOverlay, { duration: 2, opacity: "1" })
-    .to(phase3, { x: "-120%" })
+    .to(phase3, {
+      x: "-120%",
+      onComplete: () => {
+        toggleTree(false);
+        toggleEnd(true);
+      },
+    })
     /* Phase 4 */
     .to(
       phase4,
